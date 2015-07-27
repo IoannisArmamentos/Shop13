@@ -1,8 +1,6 @@
 package com.shop13;
 
 import android.app.ProgressDialog;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
@@ -29,6 +27,13 @@ import java.util.List;
 public class MainActivity extends ActionBarActivity
         implements NavigationDrawerCallbacks {
 
+    /**
+     * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
+     */
+
+    private NavigationDrawerFragment mNavigationDrawerFragment;
+    private Toolbar mToolbar;
+
     // Log tag
     private static final String TAG = MainActivity.class.getSimpleName();
 
@@ -45,19 +50,18 @@ public class MainActivity extends ActionBarActivity
     private ListView listView;
     private CustomListAdapter adapter;
 
-
-    /**
-     * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
-     */
-    private NavigationDrawerFragment mNavigationDrawerFragment;
-    private Toolbar mToolbar;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mToolbar = (Toolbar) findViewById(R.id.toolbar_actionbar);
         setSupportActionBar(mToolbar);
+
+        mNavigationDrawerFragment = (NavigationDrawerFragment)
+                getFragmentManager().findFragmentById(R.id.fragment_drawer);
+
+        // Set up the drawer.
+        mNavigationDrawerFragment.setup(R.id.fragment_drawer, (DrawerLayout) findViewById(R.id.drawer), mToolbar);
 
         listView = (ListView) findViewById(R.id.list);
         adapter = new CustomListAdapter(this, productList);
@@ -67,10 +71,6 @@ public class MainActivity extends ActionBarActivity
         // Showing progress dialog before making http request
         pDialog.setMessage("Loading...");
         pDialog.show();
-
-        // changing action bar color
-        getActionBar().setBackgroundDrawable(
-                new ColorDrawable(Color.parseColor("#1b1b1b")));
 
         // Creating volley request obj
         JsonArrayRequest productReq = new JsonArrayRequest(url,
@@ -131,12 +131,12 @@ public class MainActivity extends ActionBarActivity
 
         // Adding request to request queue
         AppController.getInstance().addToRequestQueue(productReq);
+    }
 
-        mNavigationDrawerFragment = (NavigationDrawerFragment)
-                getFragmentManager().findFragmentById(R.id.fragment_drawer);
-
-        // Set up the drawer.
-        mNavigationDrawerFragment.setup(R.id.fragment_drawer, (DrawerLayout) findViewById(R.id.drawer), mToolbar);
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        hidePDialog();
     }
 
     private void hidePDialog() {
@@ -162,12 +162,7 @@ public class MainActivity extends ActionBarActivity
             super.onBackPressed();
     }
 
-    // edw tha mpei toy nikou
-
-
-
-
-
-
+    // fail edw tha mpei toy nikou
 
 }
+
