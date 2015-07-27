@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/b151">
+
+    <TextView
+        android:id="@+id/about1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:textIsSelectable="false"
+        android:textSize="21dp"
+        android:textStyle="bold"
+        android:gravity="top|center"
+        android:text="ΣΤΟΙΧΕΙΑ ΕΠΙΚΟΙΝΩΝΙΑΣ SHOP13.GR" />
+    <TextView
+        android:id="@+id/about2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_gravity="center_horizontal"
+        android:textSize="19dp"
+        android:textStyle="bold|italic"
+        android:gravity="center"
+        android:text="Τρόποι Επικοινωνίας" />
+    <TextView
+        android:id="@+id/about3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_gravity="center_horizontal"
+        android:autoLink="phone"
+        android:clickable="true"
+        android:textSize="19dp"
+        android:text="Τηλ. Κέντρο : 801-11-56200" />
+    <TextView
+        android:id="@+id/about4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_gravity="center_horizontal"
+        android:autoLink="phone"
+        android:clickable="true"
+        android:textSize="19dp"
+        android:text="Από κινητό : 211-800-1615" />
+    <TextView
+        android:id="@+id/about5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_gravity="center_horizontal"
+        android:clickable="true"
+        android:autoLink="email"
+        android:textSize="19dp"
+        android:text="Email: sales@shop13.gr" />
+    <TextView
+        android:id="@+id/about6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_gravity="center"
+        android:textStyle="bold|italic"
+        android:textSize="19dp"
+        android:gravity="center"
+        android:text="\nΩράριο λειτουργίας" />
+    <TextView
+        android:id="@+id/about7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_gravity="center_horizontal"
+        android:textSize="19sp"
+        android:text="Δευτέρα	9:00 - 17:00\nΤρίτη	      9:00 - 17:00 και 18:00 - 21:00\nΤετάρτη	 9:00 - 17:00\nΠέμπτη	  9:00 - 17:00 και 18:00 - 21:00\nΠαρασκ.  9:00 - 17:00 και 18:00 - 21:00\nΣάββατο 9:00 - 14:00\nΚυριακή	 Κλειστά\n\nΟδός Λ.Λογοθέτη 14,\nΚαρλόβασι Σάμου\nΤ.Κ. 83200\n\nΑ.Ε Γ.Ε.ΜΗ.: 052086751000"/>
+</LinearLayout>
+</ScrollView>
