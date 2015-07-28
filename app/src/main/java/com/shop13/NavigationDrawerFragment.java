@@ -108,19 +108,19 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
         FragmentManager fragmentManager = getFragmentManager(); // For AppCompat use getSupportFragmentManager
         switch (position) {
             default:
-            case 0: //Home//todo
+            /*case 0: //Home//todo
                 fragment = new Home();
-                break;
-            case 1: //Products//todo
+                break;*/
+            case 0: //Products//todo
                 fragment = new Products();
                 break;
-            case 2: //Shop13
+            case 1: //Shop13
                 fragment = new About();
                 break;
-            case 3: //HowToOrder
+            case 2: //HowToOrder
                 fragment = new HowToOrder();
                 break;
-            case 4: //Exit
+            case 3: //Exit
                 fragment = new Exit();
                 break;
         }
@@ -133,8 +133,8 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
     public List<NavigationItem> getMenu() {
         //ArrayList me antikeimena,diladi ta fragments
         List<NavigationItem> items = new ArrayList<NavigationItem>();
-        items.add(new NavigationItem("Αρχική", getResources().getDrawable(R.drawable.ic_home_grey600_36dp)));
-        items.add(new NavigationItem("Προϊόντα", getResources().getDrawable(R.drawable.ic_shopping_music_grey600_36dp)));
+        //items.add(new NavigationItem("Αρχική", getResources().getDrawable(R.drawable.ic_home_grey600_36dp)));
+        items.add(new NavigationItem("Συμβατά Προϊόντα", getResources().getDrawable(R.drawable.ic_shopping_music_grey600_36dp)));
         items.add(new NavigationItem("Shop13", getResources().getDrawable(R.drawable.ic_phone_grey600_36dp)));
         items.add(new NavigationItem("Πως παραγγέλνω", getResources().getDrawable(R.drawable.ic_help_circle_grey600_36dp)));
         items.add(new NavigationItem("Έξοδος", getResources().getDrawable(R.drawable.ic_exit_to_app_grey600_36dp)));

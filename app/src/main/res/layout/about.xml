@@ -2,13 +2,15 @@
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="fill_parent"
+    android:background="@drawable/b15"
+    >
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/b151">
+    android:touchscreenBlocksFocus="false">
 
     <TextView
         android:id="@+id/about1"
@@ -19,7 +21,8 @@
         android:textSize="21dp"
         android:textStyle="bold"
         android:gravity="top|center"
-        android:text="ΣΤΟΙΧΕΙΑ ΕΠΙΚΟΙΝΩΝΙΑΣ SHOP13.GR" />
+        android:text="ΣΤΟΙΧΕΙΑ ΕΠΙΚΟΙΝΩΝΙΑΣ SHOP13.GR"
+        android:textColor="#546e7a" />
     <TextView
         android:id="@+id/about2"
         android:layout_width="match_parent"
