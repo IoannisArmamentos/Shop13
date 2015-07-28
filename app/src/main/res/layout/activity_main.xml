@@ -29,16 +29,6 @@
             android:layout_gravity="start"
             app:layout="@layout/fragment_navigation_drawer"/>
 
-        <ListView
-            android:id="@+id/list"
-            android:layout_marginLeft="104dp"
-            android:layout_marginStart="14dp"
-            android:layout_marginTop="34dp"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:divider="@color/list_divider"
-            android:dividerHeight="1dp"
-            android:listSelector="@drawable/list_row_selector" />
 
     </android.support.v4.widget.DrawerLayout>
 

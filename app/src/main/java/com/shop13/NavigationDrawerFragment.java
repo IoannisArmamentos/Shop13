@@ -5,28 +5,16 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
-import android.graphics.Bitmap;
-import android.graphics.BitmapShader;
-import android.graphics.Canvas;
-import android.graphics.ColorFilter;
-import android.graphics.Paint;
-import android.graphics.PixelFormat;
-import android.graphics.Rect;
-import android.graphics.RectF;
-import android.graphics.Shader;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -120,16 +108,19 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
         FragmentManager fragmentManager = getFragmentManager(); // For AppCompat use getSupportFragmentManager
         switch (position) {
             default:
-            case 0: //Home
+            case 0: //Home//todo
                 fragment = new Home();
                 break;
-            case 1: //Shop13//todo
+            case 1: //Products//todo
+                fragment = new Products();
+                break;
+            case 2: //Shop13
                 fragment = new About();
                 break;
-            case 2: //HowToOrder
+            case 3: //HowToOrder
                 fragment = new HowToOrder();
                 break;
-            case 3: //Exit
+            case 4: //Exit
                 fragment = new Exit();
                 break;
         }
@@ -143,7 +134,8 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
         //ArrayList me antikeimena,diladi ta fragments
         List<NavigationItem> items = new ArrayList<NavigationItem>();
         items.add(new NavigationItem("Αρχική", getResources().getDrawable(R.drawable.ic_home_grey600_36dp)));
-        items.add(new NavigationItem("Shop13", getResources().getDrawable(R.drawable.ic_shopping_music_grey600_36dp)));
+        items.add(new NavigationItem("Προϊόντα", getResources().getDrawable(R.drawable.ic_shopping_music_grey600_36dp)));
+        items.add(new NavigationItem("Shop13", getResources().getDrawable(R.drawable.ic_phone_grey600_36dp)));
         items.add(new NavigationItem("Πως παραγγέλνω", getResources().getDrawable(R.drawable.ic_help_circle_grey600_36dp)));
         items.add(new NavigationItem("Έξοδος", getResources().getDrawable(R.drawable.ic_exit_to_app_grey600_36dp)));
         return items;
