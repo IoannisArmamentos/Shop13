@@ -1,10 +1,8 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
 
     <include
         android:id="@+id/toolbar_actionbar"
@@ -12,11 +10,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-
     <android.support.v4.widget.DrawerLayout
         android:id="@+id/drawer"
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent" android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_below="@+id/toolbar_actionbar">
 
         <FrameLayout android:id="@+id/container"
@@ -28,11 +25,15 @@
         <fragment android:id="@+id/fragment_drawer"
             android:name="com.shop13.NavigationDrawerFragment"
             android:layout_width="@dimen/navigation_drawer_width"
-            android:layout_height="match_parent" android:layout_gravity="start"
-            app:layout="@layout/fragment_navigation_drawer" />
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            app:layout="@layout/fragment_navigation_drawer"/>
 
         <ListView
             android:id="@+id/list"
+            android:layout_marginLeft="104dp"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="34dp"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:divider="@color/list_divider"
