@@ -2,6 +2,7 @@ package com.shop13;
 
 import android.app.Fragment;
 import android.app.ProgressDialog;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -49,6 +51,11 @@ public class Products extends Fragment {
     {
         View root = inflater.inflate(R.layout.products,container,false);
         listView = (ListView) root.findViewById(R.id.list);
+        //kodikas gia na travaei to montelo tou kinitou
+        String device = Build.MODEL;
+        // globally
+        TextView tvDevice = (TextView) root.findViewById(R.id.device);
+        tvDevice.setText(device);
         adapter = new CustomListAdapter(getActivity(), productList);
         listView.setAdapter(adapter);
 
