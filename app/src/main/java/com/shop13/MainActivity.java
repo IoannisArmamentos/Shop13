@@ -1,5 +1,7 @@
 package com.shop13;
 
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
@@ -27,6 +29,14 @@ public class MainActivity extends ActionBarActivity
 
         // Set up the drawer.
         mNavigationDrawerFragment.setup(R.id.fragment_drawer, (DrawerLayout) findViewById(R.id.drawer), mToolbar);
+
+        //Fortnwnei me to kalosirthate to Prducts
+        Fragment fragment;
+        FragmentManager fragmentManager = getFragmentManager();
+        fragment = new Products();
+        fragmentManager.beginTransaction() //Ksekinaei to fragment pou dialextike
+                .replace(R.id.container, fragment)
+                .commit();
     }
 
     @Override
