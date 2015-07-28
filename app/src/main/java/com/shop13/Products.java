@@ -47,8 +47,8 @@ public class Products extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState)
     {
-        return inflater.inflate(R.layout.products,container,false);
-        listView = (ListView) findViewById(R.id.list);
+        View root = inflater.inflate(R.layout.products,container,false);
+        listView = (ListView) root.findViewById(R.id.list);
         adapter = new CustomListAdapter(getActivity(), productList);
         listView.setAdapter(adapter);
 
@@ -116,6 +116,8 @@ public class Products extends Fragment {
 
         // Adding request to request queue
         AppController.getInstance().addToRequestQueue(productReq);
+
+        return root;
     }
 
     @Override
