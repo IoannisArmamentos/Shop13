@@ -108,10 +108,7 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
         FragmentManager fragmentManager = getFragmentManager(); // For AppCompat use getSupportFragmentManager
         switch (position) {
             default:
-            /*case 0: //Home//todo
-                fragment = new Home();
-                break;*/
-            case 0: //Products//todo
+            case 0: //Products //todo
                 fragment = new Products();
                 break;
             case 1: //Shop13
@@ -124,7 +121,7 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
                 fragment = new Exit();
                 break;
         }
-        selectItem(position); //Den xreiazetai
+        selectItem(position); //Xreiazetai gia na klinei to drawer
         fragmentManager.beginTransaction() //Ksekinaei to fragment pou dialextike
                 .replace(R.id.container, fragment)
                 .commit();
@@ -133,7 +130,6 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
     public List<NavigationItem> getMenu() {
         //ArrayList me antikeimena,diladi ta fragments
         List<NavigationItem> items = new ArrayList<NavigationItem>();
-        //items.add(new NavigationItem("Αρχική", getResources().getDrawable(R.drawable.ic_home_grey600_36dp)));
         items.add(new NavigationItem("Συμβατά Προϊόντα", getResources().getDrawable(R.drawable.ic_shopping_music_grey600_36dp)));
         items.add(new NavigationItem("Shop13", getResources().getDrawable(R.drawable.ic_phone_grey600_36dp)));
         items.add(new NavigationItem("Πως παραγγέλνω", getResources().getDrawable(R.drawable.ic_help_circle_grey600_36dp)));

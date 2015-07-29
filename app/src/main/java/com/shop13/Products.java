@@ -1,6 +1,5 @@
 package com.shop13;
 
-import android.app.ActionBar;
 import android.app.Fragment;
 import android.app.ProgressDialog;
 import android.os.Build;
@@ -10,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -61,7 +59,7 @@ public class Products extends Fragment {
 
         pDialog = new ProgressDialog(getActivity());
         // Showing progress dialog before making http request
-        pDialog.setMessage("Loading...");
+        pDialog.setMessage("Φόρτωση προϊόντων...");
         pDialog.show();
 
         // Creating volley request obj
