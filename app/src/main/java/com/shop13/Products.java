@@ -8,7 +8,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -53,6 +52,9 @@ public class Products extends Fragment {
         listView = (ListView) root.findViewById(R.id.list);
         //kodikas gia na travaei to montelo tou kinitou
         String device = Build.MODEL;
+
+        //getSupportActionBar().setTitle(device);
+
         // globally
         TextView tvDevice = (TextView) root.findViewById(R.id.device);
         tvDevice.setText(device);

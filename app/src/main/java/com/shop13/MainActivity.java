@@ -30,13 +30,16 @@ public class MainActivity extends ActionBarActivity
         // Set up the drawer.
         mNavigationDrawerFragment.setup(R.id.fragment_drawer, (DrawerLayout) findViewById(R.id.drawer), mToolbar);
 
-        //Fortnwnei me to kalosirthate to Prducts
+        //Fortnwnei me to kalosirthate to Products
         Fragment fragment;
         FragmentManager fragmentManager = getFragmentManager();
         fragment = new Products();
         fragmentManager.beginTransaction() //Ksekinaei to fragment pou dialextike
                 .replace(R.id.container, fragment)
                 .commit();
+        //getSupportActionBar().setTitle("hi");
+        
+
     }
 
     @Override
@@ -56,4 +59,3 @@ public class MainActivity extends ActionBarActivity
     }
 
 }
-
