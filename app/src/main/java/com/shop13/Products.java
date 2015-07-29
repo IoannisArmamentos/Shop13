@@ -1,5 +1,6 @@
 package com.shop13;
 
+import android.app.ActionBar;
 import android.app.Fragment;
 import android.app.ProgressDialog;
 import android.os.Build;
@@ -52,12 +53,9 @@ public class Products extends Fragment {
         listView = (ListView) root.findViewById(R.id.list);
         //kodikas gia na travaei to montelo tou kinitou
         String device = Build.MODEL;
-
-        //getSupportActionBar().setTitle(device);
-
         // globally
-        TextView tvDevice = (TextView) root.findViewById(R.id.device);
-        tvDevice.setText(device);
+        /*TextView tvDevice = (TextView) root.findViewById(R.id.device);
+        tvDevice.setText(device);*/
         adapter = new CustomListAdapter(getActivity(), productList);
         listView.setAdapter(adapter);
 

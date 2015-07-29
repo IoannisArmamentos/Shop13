@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Shop13</string>
+    <string name="app_name">Shop 13</string>
     <string name="drawer_open">Menu opened</string>
     <string name="drawer_close">Menu closed</string>
     <string name="action_settings">Settings</string>
