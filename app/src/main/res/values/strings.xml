@@ -4,5 +4,6 @@
     <string name="drawer_close">Menu closed</string>
     <string name="action_cases">Θήκες</string>
     <string name="action_batteries">Μπαταρίες</string>
+    <string name="action_screenprotectors">Προστασία Οθόνης</string>
 
 </resources>

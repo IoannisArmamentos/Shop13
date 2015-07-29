@@ -65,6 +65,7 @@ public class MainActivity extends ActionBarActivity
     // Filter gia ta proionta
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#2196F3")));
         if (!mNavigationDrawerFragment.isDrawerOpen()) {
             // Only show items in the action bar relevant to this screen
             // if the drawer is not showing. Otherwise, let the drawer
@@ -81,18 +82,21 @@ public class MainActivity extends ActionBarActivity
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
         switch (id) {
             case R.id.action_cases:
                 if (item.isChecked()) item.setChecked(false);
                 else item.setChecked(true);
                 getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#212121")));
-                getSupportActionBar().setStackedBackgroundDrawable(new ColorDrawable(Color.parseColor("#f1f8e9")));
                 return true;
             case R.id.action_batteries:
                 if (item.isChecked()) item.setChecked(false);
                 else item.setChecked(true);
                 getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#4caf50")));
+                return true;
+            case R.id.action_screenprotectors:
+                if (item.isChecked()) item.setChecked(false);
+                else item.setChecked(true);
+                getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#ff9800")));
                 return true;
             //noinspection SimplifiableIfStatement
         /*if (id == R.id.action_settings) {
