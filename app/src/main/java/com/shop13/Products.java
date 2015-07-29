@@ -59,7 +59,7 @@ public class Products extends Fragment {
 
         pDialog = new ProgressDialog(getActivity());
         // Showing progress dialog before making http request
-        pDialog.setMessage("Φόρτωση προϊόντων...");
+        pDialog.setMessage("Loading...");
         pDialog.show();
 
         // Creating volley request obj

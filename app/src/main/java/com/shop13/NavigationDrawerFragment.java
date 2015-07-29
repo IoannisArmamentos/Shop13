@@ -224,7 +224,7 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
 
     @Override
     public void onDetach() {
-        // Kill it with fire
+        // Kill it with fire pls
         super.onDetach();
         mCallbacks = null;
     }
