@@ -32,6 +32,7 @@ public class NavigationDrawerAdapter extends RecyclerView.Adapter<NavigationDraw
     public NavigationDrawerAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.drawer_row, viewGroup, false);
         final ViewHolder viewHolder = new ViewHolder(v);
+
         viewHolder.itemView.setClickable(true);
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                                                    @Override
