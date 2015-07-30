@@ -5,23 +5,18 @@
     <item
         android:id="@+id/action_no_filter"
         android:title="@string/action_no_filter"
-        android:orderInCategory="1"
-        />
-
+        android:orderInCategory="1" />
     <item
         android:id="@+id/action_cases"
         android:title="@string/action_cases"
-        android:orderInCategory="2"
-         />
+        android:orderInCategory="2" />
     <item
         android:id="@+id/action_batteries"
         android:title="@string/action_batteries"
-        android:orderInCategory="3"
-         />
+        android:orderInCategory="3" />
     <item
         android:id="@+id/action_screenprotectors"
         android:title="@string/action_screenprotectors"
-        android:orderInCategory="4"
-         />
+        android:orderInCategory="4" />
 </group>
 </menu>
