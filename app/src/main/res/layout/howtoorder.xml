@@ -1,29 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/images"
+
+    >
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/b15"
+
     android:touchscreenBlocksFocus="false">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:background="@drawable/blue"
         android:id="@+id/howtoorderText"
         android:textStyle="bold"
-        android:textColor="#546e7a"
+        android:textColor="#ffffff"
         android:text="Πως παραγγέλνω"
+        android:layout_marginTop="10dp"
         android:layout_gravity="top|center"
-        android:gravity="top|center_vertical|center|center_horizontal"
+        android:gravity="bottom|center_vertical|center|center_horizontal"
         android:textSize="28dp" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/editText"
-        android:text="Η εφαρμογή βρίσκει αυτόματα τη μάρκα και το μοντέλο του κινητού και σας παρουσιάζει τα διαθέσιμα προϊόντα.\n\nΜπορείτε να επιλέξετε από τις διαθέσιμες κατηγορίες.\n\nΠατώντας το κουμπί ΑΓΟΡΑ μεταφέρεστε στο Site μας,στην αντίστοιχη σελίδα του προϊοντος.\n\n"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_gravity="top"
+        android:text="\nΗ εφαρμογή βρίσκει αυτόματα τη μάρκα και το μοντέλο του κινητού σας και παρουσιάζει τα διαθέσιμα προϊόντα.\n\nΠατώντας το κουμπί ΑΓΟΡΑ μεταφέρεστε στο Site του Shop13 ώστε να ολοκληρώσετε την παραγγελια σας. Πατώντας στον τίτλο ή στην φωτογραφία του εκάστοτε προϊόντος μπορείτε να δείτε παραπάνω πληροφορίες για το συγκεκριμένο προϊόν.\n"
+
         android:textSize="19sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText2"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_gravity="top"
+        android:text="Η εφαρμογή σας δίνει την δυνατότητα να δείτε τα διαθέσημα ανά κατηγορία έτσι ώστε να βρείτε αυτό που θέλετε ακόμα πιο γρήγορα."
+
+        android:textSize="19sp" />
+
+
+
 </LinearLayout>
+</ScrollView>
