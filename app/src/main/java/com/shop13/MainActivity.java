@@ -11,6 +11,10 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.Window;
+import android.view.WindowManager;
+
+import com.readystatesoftware.systembartint.SystemBarTintManager;
 
 public class MainActivity extends ActionBarActivity
         implements NavigationDrawerCallbacks {
@@ -22,12 +26,15 @@ public class MainActivity extends ActionBarActivity
     private NavigationDrawerFragment mNavigationDrawerFragment;
     private Toolbar mToolbar;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mToolbar = (Toolbar) findViewById(R.id.toolbar_actionbar);
         setSupportActionBar(mToolbar);
+
+
 
         setTitle("Shop 13 | " + Build.MODEL); //Vazei sto row to keimeno
 
@@ -44,6 +51,7 @@ public class MainActivity extends ActionBarActivity
         fragmentManager.beginTransaction() //Ksekinaei to fragment pou dialextike
                 .replace(R.id.container, fragment)
                 .commit();
+
     }
 
     @Override
@@ -65,7 +73,20 @@ public class MainActivity extends ActionBarActivity
     // Filter gia ta proionta
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+
+        // create manager instance after the content view is set
+        SystemBarTintManager mTintManager = new SystemBarTintManager(this);
+        // enable status bar tint
+        mTintManager.setStatusBarTintEnabled(true);
+        mTintManager.setTintColor(getResources().getColor(R.color.myPrimaryDarkColor));
+
+        //gtp entelws
+        Window window = this.getWindow();
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        window.setStatusBarColor(this.getResources().getColor(R.color.myPrimaryDarkColor));
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#2196F3")));
+
         if (!mNavigationDrawerFragment.isDrawerOpen()) {
             // Only show items in the action bar relevant to this screen
             // if the drawer is not showing. Otherwise, let the drawer
@@ -82,26 +103,37 @@ public class MainActivity extends ActionBarActivity
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
+
+        //Gia tin panw mikri mpara,gtp kwdikas thelei apo style kanonika alla dn allazei...
+        Window window = this.getWindow();
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+
         switch (id) {
+            case R.id.action_no_filter:
+                if (item.isChecked()) item.setChecked(false);
+                else item.setChecked(true);
+                window.setStatusBarColor(this.getResources().getColor(R.color.myPrimaryDarkColor));
+                getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#2196F3")));
+                return true;
             case R.id.action_cases:
                 if (item.isChecked()) item.setChecked(false);
                 else item.setChecked(true);
-                getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#212121")));
+                window.setStatusBarColor(this.getResources().getColor(R.color.casesgrey));
+                getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#9e9e9e")));
                 return true;
             case R.id.action_batteries:
                 if (item.isChecked()) item.setChecked(false);
                 else item.setChecked(true);
+                window.setStatusBarColor(this.getResources().getColor(R.color.batteriesgreen));
                 getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#4caf50")));
                 return true;
             case R.id.action_screenprotectors:
                 if (item.isChecked()) item.setChecked(false);
                 else item.setChecked(true);
+                window.setStatusBarColor(this.getResources().getColor(R.color.screenprotectorsorange));
                 getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#ff9800")));
                 return true;
-            //noinspection SimplifiableIfStatement
-        /*if (id == R.id.action_settings) {
-            return true;
-        }*/
             default:
                 return super.onOptionsItemSelected(item);
         }

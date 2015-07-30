@@ -2,6 +2,7 @@
     <string name="app_name">Shop 13</string>
     <string name="drawer_open">Menu opened</string>
     <string name="drawer_close">Menu closed</string>
+    <string name="action_no_filter">Όλα</string>
     <string name="action_cases">Θήκες</string>
     <string name="action_batteries">Μπαταρίες</string>
     <string name="action_screenprotectors">Προστασία Οθόνης</string>
