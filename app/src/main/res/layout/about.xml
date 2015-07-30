@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -92,6 +93,6 @@
         android:layout_marginRight="10dp"
         android:layout_gravity="center_horizontal"
         android:textSize="19sp"
-        android:text="Δευτέρα	9:00 - 17:00\nΤρίτη	      9:00 - 17:00 και 18:00 - 21:00\nΤετάρτη	 9:00 - 17:00\nΠέμπτη	  9:00 - 17:00 και 18:00 - 21:00\nΠαρασκευή  9:00 - 17:00 και 18:00 - 21:00\nΣάββατο 9:00 - 14:00\nΚυριακή	 Κλειστά\n\nΟδός Λ.Λογοθέτη 14,\nΚαρλόβασι Σάμου\nΤ.Κ. 83200\n\nΑ.Ε Γ.Ε.ΜΗ.: 052086751000"/>
+        android:text="Δευτέρα	9:00 - 17:00\nΤρίτη	      9:00 - 17:00 και 18:00 - 21:00\nΤετάρτη	 9:00 - 17:00\nΠέμπτη	  9:00 - 17:00 και 18:00 - 21:00\nΠαρασκ.  9:00 - 17:00 και 18:00 - 21:00\nΣάββατο 9:00 - 14:00\nΚυριακή	 Κλειστά\n\nΟδός Λ.Λογοθέτη 14,\nΚαρλόβασι Σάμου\nΤ.Κ. 83200\n\nΑ.Ε Γ.Ε.ΜΗ.: 052086751000"/>
 </LinearLayout>
 </ScrollView>

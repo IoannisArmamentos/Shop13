@@ -73,7 +73,6 @@ public class MainActivity extends ActionBarActivity
     // Filter gia ta proionta
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-
         // create manager instance after the content view is set
         SystemBarTintManager mTintManager = new SystemBarTintManager(this);
         // enable status bar tint
