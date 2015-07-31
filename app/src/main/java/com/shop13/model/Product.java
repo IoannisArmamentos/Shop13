@@ -1,19 +1,46 @@
 package com.shop13.model;
 
 public class Product {
-	private String name, thumbnailUrl, price,  siteUrl, type;
+	private String name, thumbnailUrl, price,  siteUrl, type, buyUrl, shipping, delivery;
 	private int id;
 
 	public Product() {
 	}
 
-	public Product(String name, String thumbnailUrl, String price, String siteUrl, int id, String type) {
+	public Product(String name, String thumbnailUrl, String price, String siteUrl, int id, String type, String buyUrl, String shipping, String delivery) {
 		this.name = name;
 		this.thumbnailUrl = thumbnailUrl;
 		this.price = price;
 		this.siteUrl = siteUrl;
 		this.id = id;
 		this.type = type;
+		this.buyUrl = buyUrl;
+		this.shipping = shipping;
+		this.delivery=delivery;
+	}
+
+	public String getBuyUrl() {
+		return buyUrl;
+	}
+
+	public void setBuyUrl(String buyUrl) {
+		this.buyUrl = buyUrl;
+	}
+
+	public String getShipping() {
+		return shipping;
+	}
+
+	public void setShipping(String shipping) {
+		this.shipping = shipping;
+	}
+
+	public String getDelivery() {
+		return delivery;
+	}
+
+	public void setDelivery(String delivery) {
+		this.delivery = delivery;
 	}
 
 	public void setName(String name) {
@@ -64,5 +91,18 @@ public class Product {
 		return type;
 	}
 
-
+	@Override
+	public String toString() {
+		return "Product{" +
+				"name='" + name + '\'' +
+				", thumbnailUrl='" + thumbnailUrl + '\'' +
+				", price='" + price + '\'' +
+				", siteUrl='" + siteUrl + '\'' +
+				", type='" + type + '\'' +
+				", buyUrl='" + buyUrl + '\'' +
+				", shipping='" + shipping + '\'' +
+				", delivery='" + delivery + '\'' +
+				", id=" + id +
+				'}';
+	}
 }

@@ -23,6 +23,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,29 +37,30 @@ public class Products extends Fragment {
     private static final String TAG = MainActivity.class.getSimpleName();
 
     // Products json url
-    private static final String url = "http://www.shop13.gr/app_search.php";
+    static String device = Build.MODEL;
+    private static final String urlStr = "http://www.shop13.gr/app_search.php?model=" + device;
 
     private ProgressDialog pDialog;
     private List<Product> productList = new ArrayList<Product>();
-    /*private List<Product> caseList = new ArrayList<Product>();
+    private List<Product> caseList = new ArrayList<Product>();
     private List<Product> protectorList = new ArrayList<Product>();
     private List<Product> partsList = new ArrayList<Product>();
-    private List<Product> chargeList = new ArrayList<Product>();*/
-    String caseType="144", protectorType="176", partsType="174", chargeType="180";
+    private List<Product> chargeList = new ArrayList<Product>();
+
     private ListView listView;
-    private CustomListAdapter adapter;
+    public static CustomListAdapter adapter, adapterCase, adapterProtector, adapterParts, adapterCharge;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState)
     {
+        final String url = urlStr.replaceAll(" ","%20");
         View root = inflater.inflate(R.layout.products,container,false);
         listView = (ListView) root.findViewById(R.id.list);
-        //kodikas gia na travaei to montelo tou kinitou
-        String device = Build.MODEL;
-        // globally
-        /*TextView tvDevice = (TextView) root.findViewById(R.id.device);
-        tvDevice.setText(device);*/
         adapter = new CustomListAdapter(getActivity(), productList);
+        adapterCase = new CustomListAdapter(getActivity(), caseList);
+        adapterProtector = new CustomListAdapter(getActivity(), protectorList);
+        adapterParts = new CustomListAdapter(getActivity(), partsList);
+        adapterCharge = new CustomListAdapter(getActivity(), chargeList);
         listView.setAdapter(adapter);
 
         pDialog = new ProgressDialog(getActivity());
@@ -87,17 +93,30 @@ public class Products extends Fragment {
                                 product.setPrice(obj.getString("price"));
                                 product.setSiteUrl(obj.getString("url"));
                                 product.setType(obj.getString("type"));
-
-                                // Genre is json array
-								/*JSONArray genreArry = obj.getJSONArray("genre");
-								ArrayList<String> genre = new ArrayList<String>();
-								for (int j = 0; j < genreArry.length(); j++) {
-									genre.add((String) genreArry.get(j));
-								}
-								product.setGenre(genre);*/
+                                product.setBuyUrl(obj.getString("urlbtn"));
+                                product.setShipping(obj.getString("metaf"));
+                                product.setDelivery(obj.getString("antik"));
+                                System.out.println("==========> " + product.toString());
+                                System.out.println(url);
 
                                 // adding product to movies array
                                 productList.add(product);
+
+
+                                //String caseType="144", protectorType="176", partsType="174", chargeType="180";
+                                if (product.getType().equals("144")) {
+                                    caseList.add(product);
+                                }
+                                else if (product.getType().equals("176")) {
+                                    protectorList.add(product);
+                                }
+                                else if (product.getType().equals("174")) {
+                                    partsList.add(product);
+                                }
+                                else if (product.getType().equals("180")) {
+                                    chargeList.add(product);
+                                }
+
 
 
                             } catch (JSONException e) {
