@@ -37,7 +37,7 @@ public class MainActivity extends ActionBarActivity
 
 
 
-        setTitle("Shop 13 | " + Build.MODEL); //Vazei sto row to keimeno
+        setTitle(Build.MODEL + " | " + getString(R.string.action_no_filter)); //Vazei sto row to keimeno
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getFragmentManager().findFragmentById(R.id.fragment_drawer);
@@ -118,6 +118,7 @@ public class MainActivity extends ActionBarActivity
                 //window.setStatusBarColor(this.getResources().getColor(R.color.myPrimaryDarkColor));
                 getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#2196F3")));
                 listView.setAdapter(Products.adapter);
+                setTitle(Build.MODEL + " | " + getString(R.string.action_no_filter));
                 return true;
             case R.id.action_cases:
                 if (item.isChecked()) item.setChecked(false);
@@ -125,6 +126,7 @@ public class MainActivity extends ActionBarActivity
                 //window.setStatusBarColor(this.getResources().getColor(R.color.casesgrey));
                 getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#9e9e9e")));
                 listView.setAdapter(Products.adapterCase);
+                setTitle(Build.MODEL + " | " + getString(R.string.action_cases));
                 return true;
             case R.id.action_batteries:
                 if (item.isChecked()) item.setChecked(false);
@@ -132,6 +134,7 @@ public class MainActivity extends ActionBarActivity
                 //window.setStatusBarColor(this.getResources().getColor(R.color.batteriesgreen));
                 getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#4caf50")));
                 listView.setAdapter(Products.adapterParts);
+                setTitle(Build.MODEL + " | " + getString(R.string.action_batteries));
                 return true;
             case R.id.action_screenprotectors:
                 if (item.isChecked()) item.setChecked(false);
@@ -139,6 +142,7 @@ public class MainActivity extends ActionBarActivity
                 //window.setStatusBarColor(this.getResources().getColor(R.color.screenprotectorsorange));
                 getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#ff9800")));
                 listView.setAdapter(Products.adapterProtector);
+                setTitle(Build.MODEL + " | " + getString(R.string.action_screenprotectors));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
