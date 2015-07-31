@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/images"
-
-    >
+    android:background="@drawable/images">
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     android:touchscreenBlocksFocus="false">
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -26,8 +23,7 @@
         android:layout_marginTop="10dp"
         android:layout_gravity="top|center"
         android:gravity="bottom|center_vertical|center|center_horizontal"
-        android:textSize="28dp"
-         />
+        android:textSize="28dp" />
     <TextView
         android:id="@+id/about2"
         android:layout_width="wrap_content"
@@ -97,6 +93,6 @@
         android:layout_marginRight="10dp"
         android:layout_gravity="center_horizontal"
         android:textSize="19sp"
-        android:text="Δευτέρα	9:00 - 17:00\nΤρίτη	      9:00 - 17:00 και 18:00 - 21:00\nΤετάρτη	 9:00 - 17:00\nΠέμπτη	  9:00 - 17:00 και 18:00 - 21:00\nΠαρασκευή  9:00 - 17:00 και 18:00 - 21:00\nΣάββατο 9:00 - 14:00\nΚυριακή	 Κλειστά\n\nΟδός Λ.Λογοθέτη 14,\nΚαρλόβασι Σάμου\nΤ.Κ. 83200\n\nΑ.Ε Γ.Ε.ΜΗ.: 052086751000"/>
+        android:text="Δευτέρα	9:00 - 17:00\nΤρίτη	      9:00 - 17:00 και 18:00 - 21:00\nΤετάρτη	 9:00 - 17:00\nΠέμπτη	  9:00 - 17:00 και 18:00 - 21:00\nΠαρασκ.  9:00 - 17:00 και 18:00 - 21:00\nΣάββατο 9:00 - 14:00\nΚυριακή	 Κλειστά\n\nΟδός Λ.Λογοθέτη 14,\nΚαρλόβασι Σάμου\nΤ.Κ. 83200\n\nΑ.Ε Γ.Ε.ΜΗ.: 052086751000"/>
 </LinearLayout>
 </ScrollView>

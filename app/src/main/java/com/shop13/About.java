@@ -13,4 +13,9 @@ public class About extends Fragment {
         return inflater.inflate(R.layout.about,container,false);
 
     }
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+
+    }
 }

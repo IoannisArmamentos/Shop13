@@ -144,6 +144,7 @@ public class Products extends Fragment {
         return root;
     }
 
+
     @Override
     public void onDestroy() {
         super.onDestroy();
