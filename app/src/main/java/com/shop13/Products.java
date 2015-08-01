@@ -23,11 +23,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
-import java.net.MalformedURLException;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -143,7 +138,6 @@ public class Products extends Fragment {
 
         return root;
     }
-
 
     @Override
     public void onDestroy() {

@@ -5,6 +5,7 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.widget.DrawerLayout;
@@ -108,13 +109,16 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
         FragmentManager fragmentManager = getFragmentManager(); // For AppCompat use getSupportFragmentManager
         switch (position) {
             default:
-            case 0: //Products //todo
+            case 0: //Products
+                getActivity().setTitle(Build.MODEL + " | " + "Προϊόντα ");
                 fragment = new Products();
                 break;
             case 1: //Shop13
+                getActivity().setTitle("Shop13");
                 fragment = new About();
                 break;
             case 2: //HowToOrder
+                getActivity().setTitle("Πως παραγγέλνω");
                 fragment = new HowToOrder();
                 break;
             case 3: //Exit

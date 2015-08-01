@@ -10,7 +10,7 @@
 
     <color name="myPrimaryColor">#2196F3</color>
     <color name="myPrimaryDarkColor">#1976D2</color>
-    <color name="myAccentColor">#2196F3</color>
+    <color name="myAccentColor">#9E9E9E</color>
     <color name="myDrawerBackground">#FFF</color>
     <color name="myWindowBackground">#FFF</color>
     <color name="myTextPrimaryColor">#212121</color>
@@ -31,7 +31,8 @@
     <color name="casesgrey">#616161</color>
     <color name="batteriesgreen">#388e3c</color>
     <color name="screenprotectorsorange">#f57c00</color>
-    <color name="test">#388e3c</color>
 
+    <color name="test">#388e3c</color>
+    <color name="teal">#009688</color>
 
 </resources>

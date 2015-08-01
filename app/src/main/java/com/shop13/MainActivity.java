@@ -11,11 +11,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.ListView;
-
-import com.readystatesoftware.systembartint.SystemBarTintManager;
 
 public class MainActivity extends ActionBarActivity
         implements NavigationDrawerCallbacks {
@@ -35,8 +31,6 @@ public class MainActivity extends ActionBarActivity
         mToolbar = (Toolbar) findViewById(R.id.toolbar_actionbar);
         setSupportActionBar(mToolbar);
 
-
-
         setTitle(Build.MODEL + " | " + getString(R.string.action_no_filter)); //Vazei sto row to keimeno
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
@@ -52,7 +46,6 @@ public class MainActivity extends ActionBarActivity
         fragmentManager.beginTransaction() //Ksekinaei to fragment pou dialextike
                 .replace(R.id.container, fragment)
                 .commit();
-
     }
 
     @Override
@@ -74,19 +67,6 @@ public class MainActivity extends ActionBarActivity
     // Filter gia ta proionta
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-/*
-        // create manager instance after the content view is set
-        SystemBarTintManager mTintManager = new SystemBarTintManager(this);
-        // enable status bar tint
-        mTintManager.setStatusBarTintEnabled(true);
-        mTintManager.setTintColor(getResources().getColor(R.color.myPrimaryDarkColor));
-
-        //gtp entelws
-        Window window = this.getWindow();
-        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        window.setStatusBarColor(this.getResources().getColor(R.color.myPrimaryDarkColor));*/
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#2196F3")));
 
         if (!mNavigationDrawerFragment.isDrawerOpen()) {
             // Only show items in the action bar relevant to this screen
@@ -105,17 +85,11 @@ public class MainActivity extends ActionBarActivity
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         ListView listView = (ListView) findViewById(R.id.list);
-        /*
-        //Gia tin panw mikri mpara,gtp kwdikas thelei apo style kanonika alla dn allazei...
-        Window window = this.getWindow();
-        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);*/
 
         switch (id) {
             case R.id.action_no_filter:
                 if (item.isChecked()) item.setChecked(false);
                 else item.setChecked(true);
-                //window.setStatusBarColor(this.getResources().getColor(R.color.myPrimaryDarkColor));
                 getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#2196F3")));
                 listView.setAdapter(Products.adapter);
                 setTitle(Build.MODEL + " | " + getString(R.string.action_no_filter));
@@ -123,7 +97,6 @@ public class MainActivity extends ActionBarActivity
             case R.id.action_cases:
                 if (item.isChecked()) item.setChecked(false);
                 else item.setChecked(true);
-                //window.setStatusBarColor(this.getResources().getColor(R.color.casesgrey));
                 getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#9e9e9e")));
                 listView.setAdapter(Products.adapterCase);
                 setTitle(Build.MODEL + " | " + getString(R.string.action_cases));
@@ -131,7 +104,6 @@ public class MainActivity extends ActionBarActivity
             case R.id.action_batteries:
                 if (item.isChecked()) item.setChecked(false);
                 else item.setChecked(true);
-                //window.setStatusBarColor(this.getResources().getColor(R.color.batteriesgreen));
                 getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#4caf50")));
                 listView.setAdapter(Products.adapterParts);
                 setTitle(Build.MODEL + " | " + getString(R.string.action_batteries));
@@ -139,7 +111,6 @@ public class MainActivity extends ActionBarActivity
             case R.id.action_screenprotectors:
                 if (item.isChecked()) item.setChecked(false);
                 else item.setChecked(true);
-                //window.setStatusBarColor(this.getResources().getColor(R.color.screenprotectorsorange));
                 getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#ff9800")));
                 listView.setAdapter(Products.adapterProtector);
                 setTitle(Build.MODEL + " | " + getString(R.string.action_screenprotectors));
