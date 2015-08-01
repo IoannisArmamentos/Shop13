@@ -4,8 +4,13 @@
     <string name="drawer_close">Menu closed</string>
     <string name="action_no_filter">Όλα τα προϊόντα</string>
     <string name="action_cases">Θήκες</string>
-    <string name="action_batteries">Ανταλλακτικά</string>
     <string name="action_screenprotectors">Προστασία Οθόνης</string>
+    <string name="action_parts">Ανταλλακτικά</string>
     <string name="open_times">Δευτέρα 9:00 - 17:00\nΤρίτη 9:00 - 17:00 και 18:00 - 21:00\nΤετάρτη 9:00 - 17:00\nΠέμπτη 9:00 - 17:00 και 18:00 - 21:00\nΠαρασκ. 9:00 - 17:00 και 18:00 - 21:00\nΣάββατο 9:00 - 14:00\nΚυριακή Κλειστά\n\nΟδός Λ.Λογοθέτη 14,\nΚαρλόβασι Σάμου\nΤ.Κ. 83200\n\nΑ.Ε Γ.Ε.ΜΗ.: 052086751000</string>
-
+    <string name="howtoordertext1">Σχετικά</string>
+    <string name="howtoordertext2">Η εφαρμογή βρίσκει αυτόματα τη μάρκα και το μοντέλο του κινητού και σας παρουσιάζει τα διαθέσιμα προϊόντα.</string>
+    <string name="howtoordertext3">Κατηγορίες</string>
+    <string name="howtoordertext4">Δίνεται η δυνατότητα να επιλέξετε από τις διαθέσιμες κατηγορίες προϊόντων για το κινητό σας\n(Θήκες-Προστασία Οθόνης-Ανταλλακτικά),ώστε να βρείτε αυτό που θέλετε ακόμα πιο γρήγορα.</string>
+    <string name="howtoordertext5">Προϊόν</string>
+    <string name="howtoordertext6">Πατώντας το κουμπί ΑΓΟΡΑ μεταφέρεστε στο Site του Shop13, στην αντίστοιχη σελίδα του προϊόντος.</string>
 </resources>

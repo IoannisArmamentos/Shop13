@@ -101,19 +101,19 @@ public class MainActivity extends ActionBarActivity
                 listView.setAdapter(Products.adapterCase);
                 setTitle(Build.MODEL + " | " + getString(R.string.action_cases));
                 return true;
-            case R.id.action_batteries:
-                if (item.isChecked()) item.setChecked(false);
-                else item.setChecked(true);
-                getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#4caf50")));
-                listView.setAdapter(Products.adapterParts);
-                setTitle(Build.MODEL + " | " + getString(R.string.action_batteries));
-                return true;
             case R.id.action_screenprotectors:
                 if (item.isChecked()) item.setChecked(false);
                 else item.setChecked(true);
                 getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#ff9800")));
                 listView.setAdapter(Products.adapterProtector);
                 setTitle(Build.MODEL + " | " + getString(R.string.action_screenprotectors));
+                return true;
+            case R.id.action_parts:
+                if (item.isChecked()) item.setChecked(false);
+                else item.setChecked(true);
+                getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#4caf50")));
+                listView.setAdapter(Products.adapterParts);
+                setTitle(Build.MODEL + " | " + getString(R.string.action_parts));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

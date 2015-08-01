@@ -11,12 +11,12 @@
         android:title="@string/action_cases"
         android:orderInCategory="2" />
     <item
-        android:id="@+id/action_batteries"
-        android:title="@string/action_batteries"
-        android:orderInCategory="3" />
-    <item
         android:id="@+id/action_screenprotectors"
         android:title="@string/action_screenprotectors"
+        android:orderInCategory="3" />
+    <item
+        android:id="@+id/action_parts"
+        android:title="@string/action_parts"
         android:orderInCategory="4" />
 </group>
 </menu>
