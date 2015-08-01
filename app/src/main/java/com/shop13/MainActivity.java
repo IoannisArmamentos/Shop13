@@ -67,7 +67,9 @@ public class MainActivity extends ActionBarActivity
     // Filter gia ta proionta
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-
+        /*MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main, menu);
+        return true;*/
         if (!mNavigationDrawerFragment.isDrawerOpen()) {
             // Only show items in the action bar relevant to this screen
             // if the drawer is not showing. Otherwise, let the drawer
