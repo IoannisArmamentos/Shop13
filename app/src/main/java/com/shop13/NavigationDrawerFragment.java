@@ -2,12 +2,15 @@ package com.shop13;
 
 import android.app.Activity;
 import android.app.Fragment;
-import android.app.FragmentManager;
+/*import android.support.v4.app.FragmentManager;
+import android.app.FragmentManager;*/
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -27,6 +30,8 @@ import java.util.List;
  */
 public class NavigationDrawerFragment extends Fragment implements NavigationDrawerCallbacks {
 
+
+    private FragmentActivity myContext;
     /**
      * Remember the position of the selected item.
      */
@@ -106,31 +111,46 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
         //NavigationDrawer epilegoyme kapoia kartela kai anoigei to antistoixo fragment.Ousiastika einai ena menu
         Fragment fragment = null ; // Vazoume null gt petaei sfalma an dn to kathorisoume apo tin arxi kai kapoio case den to exei
                                    // Mas ta kanein dld karpouzia kai planites antistoixa.
-        FragmentManager fragmentManager = getFragmentManager(); // For AppCompat use getSupportFragmentManager
+        android.app.FragmentManager fragmentManager = getFragmentManager(); // For AppCompat use getSupportFragmentManager
         switch (position) {
             default:
             case 0: //Products
                 getActivity().setTitle(Build.MODEL + " | " + "Προϊόντα ");
+
+                FragmentManager fragManager = myContext.getSupportFragmentManager();
                 ProductFragment fragmentV4;
-                android.support.v4.app.FragmentManager fragmentManagerV4 = getSupportFragmentManager();
+               // android.support.v4.app.FragmentManager fragmentManagerV4 = getSupportFragmentManager();
                 fragmentV4 = new ProductFragment();
+                selectItem(position); //Xreiazetai gia na klinei to drawer
+                fragManager.beginTransaction() //Ksekinaei to fragment pou dialextike
+                        .replace(R.id.container, fragmentV4)
+                        .commit();
                 break;
             case 1: //Shop13
                 getActivity().setTitle("Shop13");
                 fragment = new About();
+                selectItem(position); //Xreiazetai gia na klinei to drawer
+                fragmentManager.beginTransaction() //Ksekinaei to fragment pou dialextike
+                        .replace(R.id.container, fragment)
+                        .commit();
                 break;
             case 2: //HowToOrder
                 getActivity().setTitle("Πως παραγγέλνω");
                 fragment = new HowToOrder();
+                selectItem(position); //Xreiazetai gia na klinei to drawer
+                fragmentManager.beginTransaction() //Ksekinaei to fragment pou dialextike
+                        .replace(R.id.container, fragment)
+                        .commit();
                 break;
             case 3: //Exit
                 fragment = new Exit();
+                selectItem(position); //Xreiazetai gia na klinei to drawer
+                fragmentManager.beginTransaction() //Ksekinaei to fragment pou dialextike
+                        .replace(R.id.container, fragment)
+                        .commit();
                 break;
         }
-        selectItem(position); //Xreiazetai gia na klinei to drawer
-        fragmentManager.beginTransaction() //Ksekinaei to fragment pou dialextike
-                .replace(R.id.container, fragment)
-                .commit();
+
     }
 
     public List<NavigationItem> getMenu() {
@@ -220,6 +240,7 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
     @Override
     public void onAttach(Activity activity) {
         // To pire
+        myContext=(FragmentActivity) activity;
         super.onAttach(activity);
         try {
             mCallbacks = (NavigationDrawerCallbacks) activity;
