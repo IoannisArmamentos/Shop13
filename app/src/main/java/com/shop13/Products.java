@@ -48,6 +48,9 @@ public class Products extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState)
     {
+
+
+
         final String url = urlStr.replaceAll(" ","%20");
         View root = inflater.inflate(R.layout.products,container,false);
         listView = (ListView) root.findViewById(R.id.list);

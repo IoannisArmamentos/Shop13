@@ -46,6 +46,7 @@ public class MainActivity extends ActionBarActivity
         fragmentManager.beginTransaction() //Ksekinaei to fragment pou dialextike
                 .replace(R.id.container, fragment)
                 .commit();
+
     }
 
     @Override
