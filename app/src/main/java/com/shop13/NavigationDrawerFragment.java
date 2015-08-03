@@ -125,6 +125,7 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
                 fragManager.beginTransaction() //Ksekinaei to fragment pou dialextike
                         .replace(R.id.container, fragmentV4)
                         .commit();
+                //fragment = new ProductFragment();
                 break;
             case 1: //Shop13
                 getActivity().setTitle("Shop13");
