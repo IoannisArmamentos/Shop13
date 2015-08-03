@@ -16,8 +16,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginLeft="1dp"
-            android:layout_marginRight="1dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
             card_view:cardBackgroundColor="#FFFFFF"
             card_view:cardCornerRadius="5dp"
@@ -93,8 +93,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginLeft="1dp"
-            android:layout_marginRight="1dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:layout_marginTop="20dp"
             card_view:cardBackgroundColor="#FFFFFF"
             card_view:cardCornerRadius="5dp"
@@ -120,7 +120,7 @@
                     android:textSize="22dp"
                     android:textStyle="bold" />
 
-                <TextView
+                <!--<TextView
                     android:id="@+id/about7"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -129,10 +129,155 @@
                     android:layout_marginRight="10dp"
                     android:layout_marginTop="10dp"
                     android:ems="10"
-                    android:gravity="center"
                     android:text="@string/open_times"
                     android:textColor="#727272"
-                    android:textSize="19sp" />
+                    android:textSize="19sp" />-->
+
+                <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:ems="10"
+                    android:textColor="#727272"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:stretchColumns="1">
+                    <TableRow>
+                        <TextView
+                            android:text="Δευτέρα"
+                            android:textSize="19sp"
+                            android:padding="3dip" />
+                        <TextView
+                            android:text="9:00 - 17:00\nΚλειστά"
+                            android:textSize="19sp"
+                            android:gravity="right"
+                            android:padding="3dip" />
+                    </TableRow>
+
+                    <TableRow>
+                        <TextView
+                            android:text="Τρίτη"
+                            android:textSize="19sp"
+                            android:padding="3dip" />
+                        <TextView
+                            android:text="9:00 - 17:00\n18:00 - 21:00"
+                            android:textSize="19sp"
+                            android:gravity="right"
+                            android:padding="3dip" />
+                    </TableRow>
+
+                    <TableRow>
+                        <TextView
+                            android:text="Τετάρτη"
+                            android:textSize="19sp"
+                            android:padding="3dip" />
+                        <TextView
+                            android:text="9:00 - 17:00\nΚλειστά"
+                            android:textSize="19sp"
+                            android:gravity="right"
+                            android:padding="3dip" />
+                    </TableRow>
+
+                    <TableRow>
+                        <TextView
+                            android:text="Πέμπτη"
+                            android:textSize="19sp"
+                            android:padding="3dip" />
+                        <TextView
+                            android:text="9:00 - 17:00\n18:00 - 21:00"
+                            android:textSize="19sp"
+                            android:gravity="right"
+                            android:padding="3dip" />
+                    </TableRow>
+
+                    <TableRow>
+                        <TextView
+                            android:text="Παρασκευή"
+                            android:textSize="19sp"
+                            android:padding="3dip" />
+                        <TextView
+                            android:text="9:00 - 17:00\n18:00 - 21:00"
+                            android:textSize="19sp"
+                            android:gravity="right"
+                            android:padding="3dip" />
+                    </TableRow>
+
+                    <TableRow>
+                        <TextView
+                            android:text="Σάββατο"
+                            android:textSize="19sp"
+                            android:padding="3dip" />
+                        <TextView
+                            android:text="9:00 - 14:00\nΚλειστά"
+                            android:textSize="19sp"
+                            android:gravity="right"
+                            android:padding="3dip" />
+                    </TableRow>
+                    <TableRow>
+                        <TextView
+                            android:text="Κυριακή"
+                            android:textSize="19sp"
+                            android:padding="3dip" />
+                        <TextView
+                            android:text="Κλειστά"
+                            android:textSize="19sp"
+                            android:gravity="right"
+                            android:padding="3dip" />
+                    </TableRow>
+                </TableLayout>
+
+
+
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/cvHowTo3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            card_view:cardBackgroundColor="#FFFFFF"
+            card_view:cardCornerRadius="5dp"
+            card_view:cardUseCompatPadding="true">
+
+            <LinearLayout
+                android:id="@+id/llHowTo3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvRoundOverViewHeader"
+                android:layout_centerHorizontal="true"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/howtoorder5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:text="Ταυτότητα"
+                    android:textColor="#212121"
+                    android:textSize="22dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/howtoorder6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:text="SHOP13.GR\nΟδός Λ.Λογοθέτη 14,\nΚαρλόβασι Σάμου\nΤ.Κ. 83200\n\nΑ.Ε Γ.Ε.ΜΗ.: 052086751000"
+                    android:textColor="#727272"
+                    android:textSize="19dp"
+                    android:layout_gravity="center_horizontal" />
 
             </LinearLayout>
         </android.support.v7.widget.CardView>
