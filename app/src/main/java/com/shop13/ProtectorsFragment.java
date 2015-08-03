@@ -26,11 +26,16 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AllProductsFragment extends Fragment
+public class ProtectorsFragment extends Fragment
 {
-
     // Log tag
     private static final String TAG = MainActivity.class.getSimpleName();
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        hidePDialog();
+    }
 
     // Products json url
     static String device = Build.MODEL;
@@ -45,6 +50,8 @@ public class AllProductsFragment extends Fragment
 
     private ListView listView;
     public static CustomListAdapter adapter, adapterCase, adapterProtector, adapterParts, adapterCharge;
+
+
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
@@ -54,15 +61,18 @@ public class AllProductsFragment extends Fragment
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
+
+
+
         final String url = urlStr.replaceAll(" ","%20");
-        View root = inflater.inflate(R.layout.allproducts_fragment,container,false);
+        View root = inflater.inflate(R.layout.protectors_fragment,container,false);
         listView = (ListView) root.findViewById(R.id.list);
         adapter = new CustomListAdapter(getActivity(), productList);
         adapterCase = new CustomListAdapter(getActivity(), caseList);
         adapterProtector = new CustomListAdapter(getActivity(), protectorList);
         adapterParts = new CustomListAdapter(getActivity(), partsList);
         adapterCharge = new CustomListAdapter(getActivity(), chargeList);
-        listView.setAdapter(adapter);
+        listView.setAdapter(adapterProtector);
 
         pDialog = new ProgressDialog(getActivity());
         // Showing progress dialog before making http request
@@ -145,7 +155,6 @@ public class AllProductsFragment extends Fragment
         return root;
 
 
-        //return inflater.inflate(R.layout.allproducts_fragment, container, false);
     }
 
     @Override
@@ -171,14 +180,6 @@ public class AllProductsFragment extends Fragment
     {
         super.onResume();
     }
-
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        hidePDialog();
-    }
-
 
     private void hidePDialog() {
         if (pDialog != null) {

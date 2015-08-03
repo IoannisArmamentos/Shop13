@@ -13,4 +13,10 @@
     <string name="howtoordertext4">Δίνεται η δυνατότητα να επιλέξετε από τις διαθέσιμες κατηγορίες προϊόντων για το κινητό σας\n(Θήκες-Προστασία Οθόνης-Ανταλλακτικά),ώστε να βρείτε αυτό που θέλετε ακόμα πιο γρήγορα.</string>
     <string name="howtoordertext5">Προϊόν</string>
     <string name="howtoordertext6">Πατώντας το κουμπί ΑΓΟΡΑ μεταφέρεστε στο Site του Shop13, στην αντίστοιχη σελίδα του προϊόντος.</string>
+
+    <string name="all">Όλα</string>
+    <string name="cases">Θήκες</string>
+    <string name="protectos">Προστασία Οθόνης</string>
+    <string name="parts">Ανταλλακτικά</string>
+
 </resources>

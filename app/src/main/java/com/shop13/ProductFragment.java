@@ -2,23 +2,19 @@ package com.shop13;
 
 
 import android.content.Context;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v4.app.Fragment;
-import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TabHost;
 import android.widget.TabWidget;
 
 import java.util.ArrayList;
-/**
- * Created by Nikos on 3/8/2015.
- */
+
 public class ProductFragment extends Fragment{
 
 
@@ -48,9 +44,10 @@ public class ProductFragment extends Fragment{
         mTabsAdapter = new TabsAdapter(getActivity(), mTabHost, mViewPager);
 
         // Here we load the content for each tab.
-        mTabsAdapter.addTab(mTabHost.newTabSpec("one").setIndicator("One"), AllProductsFragment.class, null);
-        mTabsAdapter.addTab(mTabHost.newTabSpec("two").setIndicator("Two"), CasesFragment.class, null);
-
+        mTabsAdapter.addTab(mTabHost.newTabSpec("one").setIndicator(getResources().getString(R.string.all)), AllProductsFragment.class, null);
+        mTabsAdapter.addTab(mTabHost.newTabSpec("two").setIndicator(getResources().getString(R.string.cases)), CasesFragment.class, null);
+        mTabsAdapter.addTab(mTabHost.newTabSpec("three").setIndicator(getResources().getString(R.string.protectos)), ProtectorsFragment.class, null);
+        mTabsAdapter.addTab(mTabHost.newTabSpec("four").setIndicator(getResources().getString(R.string.parts)), PartsFragment.class, null);
         return v;
     }
 
