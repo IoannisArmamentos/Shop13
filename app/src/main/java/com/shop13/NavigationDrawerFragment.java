@@ -111,7 +111,9 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
             default:
             case 0: //Products
                 getActivity().setTitle(Build.MODEL + " | " + "Προϊόντα ");
-                fragment = new Products();
+                ProductFragment fragmentV4;
+                android.support.v4.app.FragmentManager fragmentManagerV4 = getSupportFragmentManager();
+                fragmentV4 = new ProductFragment();
                 break;
             case 1: //Shop13
                 getActivity().setTitle("Shop13");
