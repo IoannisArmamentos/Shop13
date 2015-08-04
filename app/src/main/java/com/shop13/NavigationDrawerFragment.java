@@ -120,8 +120,6 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
             default:
             case 0: //Products
                 getActivity().setTitle(Build.MODEL + " | " + "Προϊόντα ");
-                //FragmentManager fragManager = myContext.getSupportFragmentManager();
-                //ProductFragment fragment;
                 fragment = new Fragment();
                 selectItem(position); //Xreiazetai gia na klinei to drawer
                 fragmentManager.beginTransaction() //Ksekinaei to fragment pou dialextike
