@@ -46,7 +46,6 @@ public class MainActivity extends ActionBarActivity
     public void onNavigationDrawerItemSelected(int position) {
         // Gyrnaei ti thesi pou epilextike
         // update the main content by replacing fragments
-        //Toast.makeText(this, "Menu item selected -> " + position, Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -57,62 +56,4 @@ public class MainActivity extends ActionBarActivity
         else
             super.onBackPressed();
     }
-
-    /*// Filter gia ta proionta
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        *//*MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.main, menu);
-        return true;*//*
-        if (!mNavigationDrawerFragment.isDrawerOpen()) {
-            // Only show items in the action bar relevant to this screen
-            // if the drawer is not showing. Otherwise, let the drawer
-            // decide what to show in the action bar.
-            getMenuInflater().inflate(R.menu.main, menu);
-            return true;
-        }
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        ListView listView = (ListView) findViewById(R.id.list);
-
-        switch (id) {
-            case R.id.action_no_filter:
-                if (item.isChecked()) item.setChecked(false);
-                else item.setChecked(true);
-                getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#2196F3")));
-                listView.setAdapter(Products.adapter);
-                setTitle(Build.MODEL + " | " + getString(R.string.action_no_filter));
-                return true;
-            case R.id.action_cases:
-                if (item.isChecked()) item.setChecked(false);
-                else item.setChecked(true);
-                getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#9e9e9e")));
-                listView.setAdapter(Products.adapterCase);
-                setTitle(Build.MODEL + " | " + getString(R.string.action_cases));
-                return true;
-            case R.id.action_screenprotectors:
-                if (item.isChecked()) item.setChecked(false);
-                else item.setChecked(true);
-                getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#ff9800")));
-                listView.setAdapter(Products.adapterProtector);
-                setTitle(Build.MODEL + " | " + getString(R.string.action_screenprotectors));
-                return true;
-            case R.id.action_parts:
-                if (item.isChecked()) item.setChecked(false);
-                else item.setChecked(true);
-                getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#4caf50")));
-                listView.setAdapter(Products.adapterParts);
-                setTitle(Build.MODEL + " | " + getString(R.string.action_parts));
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }*/
 }
