@@ -15,6 +15,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.shop13.MainActivity;
+import com.shop13.ProductFragment;
 import com.shop13.R;
 import com.shop13.adater.CustomListAdapter;
 import com.shop13.app.AppController;
@@ -42,11 +43,12 @@ public class AllProductsFragment extends Fragment
     private List<Product> productList = new ArrayList<Product>();
     private List<Product> caseList = new ArrayList<Product>();
     private List<Product> protectorList = new ArrayList<Product>();
-    private List<Product> partsList = new ArrayList<Product>();
+    //private List<Product> partsList = new ArrayList<Product>();
     private List<Product> chargeList = new ArrayList<Product>();
 
     private ListView listView;
-    public static CustomListAdapter adapter, adapterCase, adapterProtector, adapterParts, adapterCharge;
+    public static CustomListAdapter adapter, adapterCase, adapterProtector, adapterCharge;
+    boolean flagCase=false, flagProtector=false, flagCharge=false;
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
@@ -56,7 +58,7 @@ public class AllProductsFragment extends Fragment
         adapter = new CustomListAdapter(getActivity(), productList);
         adapterCase = new CustomListAdapter(getActivity(), caseList);
         adapterProtector = new CustomListAdapter(getActivity(), protectorList);
-        adapterParts = new CustomListAdapter(getActivity(), partsList);
+        //adapterParts = new CustomListAdapter(getActivity(), partsList);
         adapterCharge = new CustomListAdapter(getActivity(), chargeList);
 
         pDialog = new ProgressDialog(getActivity());
@@ -92,8 +94,9 @@ public class AllProductsFragment extends Fragment
                                 product.setBuyUrl(obj.getString("urlbtn"));
                                 product.setShipping(obj.getString("metaf"));
                                 product.setDelivery(obj.getString("antik"));
-                                System.out.println("==========> " + product.toString());
-                                System.out.println(url);
+                                //System.out.println("==========> " + product.toString());
+                                //System.out.println(url);
+                                System.out.println("Running on Create All Products");
 
                                 // adding product to movies array
                                 productList.add(product);
@@ -102,15 +105,18 @@ public class AllProductsFragment extends Fragment
                                 //String caseType="144", protectorType="176", partsType="174", chargeType="180";
                                 if (product.getType().equals("144")) {
                                     caseList.add(product);
+                                    flagCase=true;
                                 }
                                 else if (product.getType().equals("176")) {
                                     protectorList.add(product);
+                                    flagProtector=true;
                                 }
-                                else if (product.getType().equals("174")) {
+                                /*else if (product.getType().equals("174")) {
                                     partsList.add(product);
-                                }
+                                }*/
                                 else if (product.getType().equals("180")) {
                                     chargeList.add(product);
+                                    flagCharge=true;
                                 }
 
 
@@ -139,6 +145,23 @@ public class AllProductsFragment extends Fragment
 
         // Adding request to request queue
         AppController.getInstance().addToRequestQueue(productReq);
+
+
+        /*if(!flagCase)
+        {
+            ProductFragment.mTabHost.getTabWidget().removeView(ProductFragment.mTabHost.getTabWidget().getChildTabViewAt(1));
+        }
+
+        if(!flagProtector)
+        {
+            ProductFragment.mTabHost.getTabWidget().removeView(ProductFragment.mTabHost.getTabWidget().getChildTabViewAt(2));
+        }
+
+        if(!flagCharge)
+        {
+            ProductFragment.mTabHost.getTabWidget().removeView(ProductFragment.mTabHost.getTabWidget().getChildTabViewAt(3));
+        }*/
+
     }
 
     @Override
@@ -148,6 +171,7 @@ public class AllProductsFragment extends Fragment
         View root = inflater.inflate(R.layout.allproducts_fragment,container,false);
         listView = (ListView) root.findViewById(R.id.list);
         listView.setAdapter(AllProductsFragment.adapter);
+        System.out.println("Running on Create View all products");
         return root;
 
 

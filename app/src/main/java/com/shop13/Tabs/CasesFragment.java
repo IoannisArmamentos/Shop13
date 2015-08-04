@@ -36,6 +36,7 @@ public class CasesFragment extends Fragment
         View root = inflater.inflate(R.layout.cases_fragment,container,false);
         listView = (ListView) root.findViewById(R.id.list);
         listView.setAdapter(AllProductsFragment.adapterCase);
+        System.out.println("Running on Create View cases");
 
         return root;
 

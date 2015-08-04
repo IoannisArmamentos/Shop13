@@ -33,6 +33,7 @@ public class ProtectorsFragment extends Fragment
         View root = inflater.inflate(R.layout.protectors_fragment,container,false);
         listView = (ListView) root.findViewById(R.id.list);
         listView.setAdapter(AllProductsFragment.adapterProtector);
+        System.out.println("Running on Create View protectors");
 
         return root;
 

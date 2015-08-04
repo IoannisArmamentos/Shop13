@@ -23,7 +23,7 @@ import java.util.ArrayList;
 public class ProductFragment extends Fragment{
 
 
-    private TabHost mTabHost;
+    public static TabHost mTabHost;
     private ViewPager mViewPager;
     private TabsAdapter mTabsAdapter;
 
