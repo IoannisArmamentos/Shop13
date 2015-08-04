@@ -10,7 +10,7 @@
 
     <color name="myPrimaryColor">#2196F3</color>
     <color name="myPrimaryDarkColor">#1976D2</color>
-    <color name="myAccentColor">#9E9E9E</color>
+    <color name="myAccentColor">#03A9F4</color>
     <color name="myDrawerBackground">#FFF</color>
     <color name="myWindowBackground">#FFF</color>
     <color name="myTextPrimaryColor">#212121</color>
@@ -22,7 +22,7 @@
     <color name="genre">#666666</color>
     <color name="year">#888888</color>
     <color name="price">#af1210</color>
-    <color name="list_divider">#d9d9d9</color>
+    <color name="list_divider">#03A9F4</color>
     <color name="list_row_start_color">#ffffff</color>
     <color name="list_row_end_color">#ffffff</color>
     <color name="list_row_hover_start_color">#ebeef0</color>
