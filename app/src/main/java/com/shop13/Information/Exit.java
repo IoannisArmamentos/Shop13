@@ -1,4 +1,4 @@
-package com.shop13;
+package com.shop13.Information;
 
 import android.app.Fragment;
 import android.os.Bundle;

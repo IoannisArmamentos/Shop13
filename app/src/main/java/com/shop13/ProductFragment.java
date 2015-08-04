@@ -13,6 +13,11 @@ import android.view.ViewGroup;
 import android.widget.TabHost;
 import android.widget.TabWidget;
 
+import com.shop13.Tabs.AllProductsFragment;
+import com.shop13.Tabs.CasesFragment;
+import com.shop13.Tabs.ChargersFragment;
+import com.shop13.Tabs.ProtectorsFragment;
+
 import java.util.ArrayList;
 
 public class ProductFragment extends Fragment{
