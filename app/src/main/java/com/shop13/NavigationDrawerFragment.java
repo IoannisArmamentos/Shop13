@@ -2,15 +2,12 @@ package com.shop13;
 
 import android.app.Activity;
 import android.app.Fragment;
-/*import android.support.v4.app.FragmentManager;
-import android.app.FragmentManager;*/
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -26,6 +23,9 @@ import com.shop13.Information.HowToOrder;
 
 import java.util.ArrayList;
 import java.util.List;
+
+/*import android.support.v4.app.FragmentManager;
+import android.app.FragmentManager;*/
 
 /**
  * Fragment used for managing interactions for and presentation of a navigation drawer.
@@ -120,12 +120,12 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
             default:
             case 0: //Products
                 getActivity().setTitle(Build.MODEL + " | " + "Προϊόντα ");
-                FragmentManager fragManager = myContext.getSupportFragmentManager();
-                ProductFragment fragmentV4;
-                fragmentV4 = new ProductFragment();
+                //FragmentManager fragManager = myContext.getSupportFragmentManager();
+                //ProductFragment fragment;
+                fragment = new Fragment();
                 selectItem(position); //Xreiazetai gia na klinei to drawer
-                fragManager.beginTransaction() //Ksekinaei to fragment pou dialextike
-                        .replace(R.id.container, fragmentV4)
+                fragmentManager.beginTransaction() //Ksekinaei to fragment pou dialextike
+                        .replace(R.id.container, fragment)
                         .commit();
                 break;
             case 1: //Shop13
