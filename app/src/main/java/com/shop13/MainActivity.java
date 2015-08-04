@@ -1,15 +1,10 @@
 package com.shop13;
 
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.ListView;
 
 public class MainActivity extends ActionBarActivity
         implements NavigationDrawerCallbacks {
@@ -49,7 +44,7 @@ public class MainActivity extends ActionBarActivity
 
     @Override
     public void onNavigationDrawerItemSelected(int position) {
-        // Tipota de kanei,einai gia test
+        // Gyrnaei ti thesi pou epilextike
         // update the main content by replacing fragments
         //Toast.makeText(this, "Menu item selected -> " + position, Toast.LENGTH_SHORT).show();
     }
@@ -63,12 +58,12 @@ public class MainActivity extends ActionBarActivity
             super.onBackPressed();
     }
 
-    // Filter gia ta proionta
+    /*// Filter gia ta proionta
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        /*MenuInflater inflater = getMenuInflater();
+        *//*MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.main, menu);
-        return true;*/
+        return true;*//*
         if (!mNavigationDrawerFragment.isDrawerOpen()) {
             // Only show items in the action bar relevant to this screen
             // if the drawer is not showing. Otherwise, let the drawer
@@ -119,5 +114,5 @@ public class MainActivity extends ActionBarActivity
             default:
                 return super.onOptionsItemSelected(item);
         }
-    }
+    }*/
 }
