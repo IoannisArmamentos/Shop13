@@ -14,9 +14,9 @@
     <string name="howtoordertext5">Προϊόν</string>
     <string name="howtoordertext6">Πατώντας το κουμπί ΑΓΟΡΑ μεταφέρεστε στο Site του Shop13, στην αντίστοιχη σελίδα του προϊόντος.</string>
 
-    <string name="all">Όλα</string>
-    <string name="cases">Θήκες</string>
-    <string name="protectos">Προστασία Οθόνης</string>
-    <string name="parts">Ανταλλακτικά</string>
+    <string name="all">ΟΛΑ</string>
+    <string name="cases">ΘΗΚΕΣ</string>
+    <string name="protectos">ΠΡΟΣΤΑΣΙΑ ΟΘΟΝΗΣ</string>
+    <string name="parts">ΑΝΤΑΛΛΑΚΤΙΚΑ</string>
 
 </resources>

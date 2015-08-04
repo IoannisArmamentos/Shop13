@@ -28,11 +28,4 @@
     <color name="list_row_hover_start_color">#ebeef0</color>
     <color name="list_row_hover_end_color">#ebeef0</color>
 
-    <color name="casesgrey">#616161</color>
-    <color name="batteriesgreen">#388e3c</color>
-    <color name="screenprotectorsorange">#f57c00</color>
-
-    <color name="test">#388e3c</color>
-    <color name="teal">#009688</color>
-
 </resources>
