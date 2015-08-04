@@ -15,8 +15,8 @@
         android:title="@string/action_screenprotectors"
         android:orderInCategory="3" />
     <item
-        android:id="@+id/action_parts"
-        android:title="@string/action_parts"
+        android:id="@+id/action_chargers"
+        android:title="@string/action_chargers"
         android:orderInCategory="4" />
 </group>
 </menu>

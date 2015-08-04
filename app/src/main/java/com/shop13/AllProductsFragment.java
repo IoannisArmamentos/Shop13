@@ -40,11 +40,10 @@ public class AllProductsFragment extends Fragment
     private List<Product> productList = new ArrayList<Product>();
     private List<Product> caseList = new ArrayList<Product>();
     private List<Product> protectorList = new ArrayList<Product>();
-    private List<Product> partsList = new ArrayList<Product>();
-    private List<Product> chargeList = new ArrayList<Product>();
+    private List<Product> chargerList = new ArrayList<Product>();
 
     private ListView listView;
-    public static CustomListAdapter adapter, adapterCase, adapterProtector, adapterParts, adapterCharge;
+    public static CustomListAdapter adapter, adapterCase, adapterProtector, adapterCharger;
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
@@ -60,8 +59,7 @@ public class AllProductsFragment extends Fragment
         adapter = new CustomListAdapter(getActivity(), productList);
         adapterCase = new CustomListAdapter(getActivity(), caseList);
         adapterProtector = new CustomListAdapter(getActivity(), protectorList);
-        adapterParts = new CustomListAdapter(getActivity(), partsList);
-        adapterCharge = new CustomListAdapter(getActivity(), chargeList);
+        adapterCharger = new CustomListAdapter(getActivity(), chargerList);
         listView.setAdapter(adapter);
 
         pDialog = new ProgressDialog(getActivity());
@@ -111,11 +109,8 @@ public class AllProductsFragment extends Fragment
                                 else if (product.getType().equals("176")) {
                                     protectorList.add(product);
                                 }
-                                else if (product.getType().equals("174")) {
-                                    partsList.add(product);
-                                }
                                 else if (product.getType().equals("180")) {
-                                    chargeList.add(product);
+                                    chargerList.add(product);
                                 }
 
 
@@ -131,7 +126,7 @@ public class AllProductsFragment extends Fragment
                         adapter.notifyDataSetChanged();
                         adapterCase.notifyDataSetChanged();
                         adapterProtector.notifyDataSetChanged();
-                        adapterCharge.notifyDataSetChanged();
+                        adapterCharger.notifyDataSetChanged();
                     }
                 }, new Response.ErrorListener() {
             @Override

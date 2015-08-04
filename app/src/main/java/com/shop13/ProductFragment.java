@@ -47,7 +47,7 @@ public class ProductFragment extends Fragment{
         mTabsAdapter.addTab(mTabHost.newTabSpec("one").setIndicator(getResources().getString(R.string.all)), AllProductsFragment.class, null);
         mTabsAdapter.addTab(mTabHost.newTabSpec("two").setIndicator(getResources().getString(R.string.cases)), CasesFragment.class, null);
         mTabsAdapter.addTab(mTabHost.newTabSpec("three").setIndicator(getResources().getString(R.string.protectos)), ProtectorsFragment.class, null);
-        mTabsAdapter.addTab(mTabHost.newTabSpec("four").setIndicator(getResources().getString(R.string.parts)), PartsFragment.class, null);
+        mTabsAdapter.addTab(mTabHost.newTabSpec("four").setIndicator(getResources().getString(R.string.parts)), ChargersFragment.class, null);
         return v;
     }
 

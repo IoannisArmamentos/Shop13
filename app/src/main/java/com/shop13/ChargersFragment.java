@@ -1,9 +1,9 @@
 package com.shop13;
-
-import android.app.Fragment;
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,10 +26,16 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Products extends Fragment {
-
+public class ChargersFragment extends Fragment
+{
     // Log tag
     private static final String TAG = MainActivity.class.getSimpleName();
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        hidePDialog();
+    }
 
     // Products json url
     static String device = Build.MODEL;
@@ -44,20 +50,27 @@ public class Products extends Fragment {
     private ListView listView;
     public static CustomListAdapter adapter, adapterCase, adapterProtector, adapterCharger;
 
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState)
+    public void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
 
 
 
         final String url = urlStr.replaceAll(" ","%20");
-        View root = inflater.inflate(R.layout.products,container,false);
+        View root = inflater.inflate(R.layout.parts_fragment,container,false);
         listView = (ListView) root.findViewById(R.id.list);
         adapter = new CustomListAdapter(getActivity(), productList);
         adapterCase = new CustomListAdapter(getActivity(), caseList);
         adapterProtector = new CustomListAdapter(getActivity(), protectorList);
         adapterCharger = new CustomListAdapter(getActivity(), chargerList);
-        listView.setAdapter(adapter);
+        listView.setAdapter(adapterCharger);
 
         pDialog = new ProgressDialog(getActivity());
         // Showing progress dialog before making http request
@@ -135,12 +148,32 @@ public class Products extends Fragment {
         AppController.getInstance().addToRequestQueue(productReq);
 
         return root;
+
+
     }
 
     @Override
-    public void onDestroy() {
-        super.onDestroy();
-        hidePDialog();
+    public void onActivityCreated(Bundle savedInstanceState)
+    {
+        super.onActivityCreated(savedInstanceState);
+    }
+
+    @Override
+    public void onAttach(Activity activity)
+    {
+        super.onAttach(activity);
+    }
+
+    @Override
+    public void onStart()
+    {
+        super.onStart();
+    }
+
+    @Override
+    public void onResume()
+    {
+        super.onResume();
     }
 
     private void hidePDialog() {
@@ -149,5 +182,4 @@ public class Products extends Fragment {
             pDialog = null;
         }
     }
-
 }
