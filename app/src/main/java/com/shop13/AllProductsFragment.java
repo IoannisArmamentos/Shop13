@@ -129,6 +129,9 @@ public class AllProductsFragment extends Fragment
                         // notifying list adapter about data changes
                         // so that it renders the list view with updated data
                         adapter.notifyDataSetChanged();
+                        adapterCase.notifyDataSetChanged();
+                        adapterProtector.notifyDataSetChanged();
+                        adapterCharge.notifyDataSetChanged();
                     }
                 }, new Response.ErrorListener() {
             @Override
