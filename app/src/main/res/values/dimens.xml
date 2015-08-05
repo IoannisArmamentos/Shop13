@@ -10,5 +10,6 @@
     <dimen name="title">19dp</dimen>
     <dimen name="price">12dip</dimen>
     <dimen name="button">17dip</dimen>
+    <dimen name="list_view_margin_horizontal">10dp</dimen>
 
 </resources>

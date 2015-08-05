@@ -4,15 +4,18 @@
     android:id="@+id/first_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
+    android:background="@color/list_divider"
+    android:orientation="vertical">
 
     <ListView
         android:id="@+id/list"
+        android:layout_marginTop="@dimen/list_view_margin_horizontal"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:divider="@color/list_divider"
         android:dividerHeight="8dp"
+        android:layout_marginRight="@dimen/list_view_margin_horizontal"
+        android:layout_marginLeft="@dimen/list_view_margin_horizontal"
         android:listSelector="@drawable/list_row_selector">
     </ListView>
 

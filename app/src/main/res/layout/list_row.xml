@@ -6,11 +6,15 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+   android:layout_marginLeft="@dimen/activity_horizontal_margin"
+    android:layout_marginRight="@dimen/activity_horizontal_margin"
     card_view:cardElevation="2dp"
     card_view:cardBackgroundColor="@android:color/white"
-    card_view:cardCornerRadius="4dp"
+    card_view:cardCornerRadius="5dp"
     card_view:contentPadding="8dp"
-    android:background="#03A9F4"
+
     >
 
 <RelativeLayout

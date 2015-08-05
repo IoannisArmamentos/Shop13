@@ -54,6 +54,7 @@ public class ProductFragment extends Fragment{
         mTabsAdapter.addTab(mTabHost.newTabSpec("three").setIndicator(getResources().getString(R.string.protectos)), ProtectorsFragment.class, null);
         mTabsAdapter.addTab(mTabHost.newTabSpec("four").setIndicator(getResources().getString(R.string.parts)), ChargersFragment.class, null);
         return v;
+
     }
 
     public static class TabsAdapter extends FragmentPagerAdapter implements TabHost.OnTabChangeListener, ViewPager.OnPageChangeListener
