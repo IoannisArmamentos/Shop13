@@ -6,6 +6,9 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 
+import com.shop13.Information.NavigationDrawerFragment;
+import com.shop13.Interface.NavigationDrawerCallbacks;
+
 public class MainActivity extends ActionBarActivity
         implements NavigationDrawerCallbacks {
 

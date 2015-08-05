@@ -10,7 +10,6 @@ public class Exit extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
-        System.out.println("Alahu Akbar");
         System.exit(0);
     }
     public void onDestroy() {

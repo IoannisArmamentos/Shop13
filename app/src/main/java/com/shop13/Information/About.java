@@ -10,9 +10,7 @@ import com.shop13.R;
 
 public class About extends Fragment {
 
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState)
-    {
-        System.out.println("Running on Create View About");
-        return inflater.inflate(R.layout.about,container,false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.about, container, false);
     }
 }

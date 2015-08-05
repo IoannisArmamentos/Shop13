@@ -11,12 +11,14 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TabHost;
 import android.widget.TabWidget;
+import android.widget.TextView;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -38,7 +40,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductFragment extends Fragment{
+public class ProductFragment extends Fragment {
 
 
     public static TabHost mTabHost;
@@ -61,25 +63,18 @@ public class ProductFragment extends Fragment{
 
     private ListView listView;
     public static CustomListAdapter adapter, adapterCase, adapterProtector, adapterCharge;
-    boolean flagCase=false, flagProtector=false, flagCharge=false;
+    boolean flagCase = true, flagProtector = true, flagCharge = true;
 
     public ProductFragment() {
     }
 
     @Override
-    public void onCreate(Bundle instance)
-    {
+    public void onCreate(Bundle instance) {
         super.onCreate(instance);
 
 
     }
 
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        System.out.println("On attach....");
-        JSONProducts();
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -93,59 +88,47 @@ public class ProductFragment extends Fragment{
         mViewPager = (ViewPager) v.findViewById(R.id.pager);
         mTabsAdapter = new TabsAdapter(getActivity(), mTabHost, mViewPager);
 
-        // Here we load the content for each tab.
         mTabsAdapter.addTab(mTabHost.newTabSpec("one").setIndicator(getResources().getString(R.string.all)), AllProductsFragment.class, null);
+        JSONProducts();
+        /*final TabWidget tw = (TabWidget)mTabHost.findViewById(android.R.id.tabs);
+        System.out.println("Hello ===============> " + tw.getChildCount());
+        for(int i=0; i<tw.getChildCount(); i++)
+        {
 
-        //JSONProducts();
-        System.out.println("Adding tabs...");
-        if (flagCase) {
-            System.out.println("Added case tab.");
-            mTabsAdapter.addTab(mTabHost.newTabSpec("two").setIndicator(getResources().getString(R.string.cases)), CasesFragment.class, null);
-        }
-        if (flagProtector) {
-            System.out.println("Added protector tab.");
-            mTabsAdapter.addTab(mTabHost.newTabSpec("three").setIndicator(getResources().getString(R.string.protectos)), ProtectorsFragment.class, null);
-        }
+            final View tabView = tw.getChildTabViewAt(i);
+            final TextView tv = (TextView)tabView.findViewById(android.R.id.title);
+            tv.setTextSize(TypedValue.COMPLEX_UNIT_SP,10);
+        }*/
 
-        if (flagCharge) {
-            System.out.println("Added charger tab.");
-            mTabsAdapter.addTab(mTabHost.newTabSpec("four").setIndicator(getResources().getString(R.string.parts)), ChargersFragment.class, null);
-        }
-            return v;
+        return v;
     }
 
-    public static class TabsAdapter extends FragmentPagerAdapter implements TabHost.OnTabChangeListener, ViewPager.OnPageChangeListener
-    {
+    public static class TabsAdapter extends FragmentPagerAdapter implements TabHost.OnTabChangeListener, ViewPager.OnPageChangeListener {
         private final Context mContext;
         private final TabHost mTabHost;
         private final ViewPager mViewPager;
         private final ArrayList<TabInfo> mTabs = new ArrayList<TabInfo>();
 
-        static final class TabInfo
-        {
+        static final class TabInfo {
             private final String tag;
             private final Class<?> clss;
             private final Bundle args;
 
-            TabInfo(String _tag, Class<?> _class, Bundle _args)
-            {
+            TabInfo(String _tag, Class<?> _class, Bundle _args) {
                 tag = _tag;
                 clss = _class;
                 args = _args;
             }
         }
 
-        static class DummyTabFactory implements TabHost.TabContentFactory
-        {
+        static class DummyTabFactory implements TabHost.TabContentFactory {
             private final Context mContext;
 
-            public DummyTabFactory(Context context)
-            {
+            public DummyTabFactory(Context context) {
                 mContext = context;
             }
 
-            public View createTabContent(String tag)
-            {
+            public View createTabContent(String tag) {
                 View v = new View(mContext);
                 v.setMinimumWidth(0);
                 v.setMinimumHeight(0);
@@ -153,8 +136,7 @@ public class ProductFragment extends Fragment{
             }
         }
 
-        public TabsAdapter(FragmentActivity activity, TabHost tabHost, ViewPager pager)
-        {
+        public TabsAdapter(FragmentActivity activity, TabHost tabHost, ViewPager pager) {
             super(activity.getSupportFragmentManager());
             mContext = activity;
             mTabHost = tabHost;
@@ -164,11 +146,9 @@ public class ProductFragment extends Fragment{
             mViewPager.setOnPageChangeListener(this);
         }
 
-        public void addTab(TabHost.TabSpec tabSpec, Class<?> clss, Bundle args)
-        {
+        public void addTab(TabHost.TabSpec tabSpec, Class<?> clss, Bundle args) {
             tabSpec.setContent(new DummyTabFactory(mContext));
             String tag = tabSpec.getTag();
-
             TabInfo info = new TabInfo(tag, clss, args);
             mTabs.add(info);
             mTabHost.addTab(tabSpec);
@@ -176,32 +156,26 @@ public class ProductFragment extends Fragment{
         }
 
         @Override
-        public int getCount()
-        {
+        public int getCount() {
             return mTabs.size();
         }
 
         @Override
-        public Fragment getItem(int position)
-        {
+        public Fragment getItem(int position) {
             TabInfo info = mTabs.get(position);
-
-            return Fragment.instantiate(mContext, info.clss.getName(), info.args);
+                        return Fragment.instantiate(mContext, info.clss.getName(), info.args);
 
         }
 
-        public void onTabChanged(String tabId)
-        {
+        public void onTabChanged(String tabId) {
             int position = mTabHost.getCurrentTab();
             mViewPager.setCurrentItem(position);
         }
 
-        public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels)
-        {
+        public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
         }
 
-        public void onPageSelected(int position)
-        {
+        public void onPageSelected(int position) {
             // Unfortunately when TabHost changes the current tab, it kindly
             // also takes care of putting focus on it when not in touch mode.
             // The jerk.
@@ -214,8 +188,7 @@ public class ProductFragment extends Fragment{
             widget.setDescendantFocusability(oldFocusability);
         }
 
-        public void onPageScrollStateChanged(int state)
-        {
+        public void onPageScrollStateChanged(int state) {
         }
     }
 
@@ -233,16 +206,14 @@ public class ProductFragment extends Fragment{
         }
     }
 
-    public void JSONProducts()
-    {
-        System.out.println("Calling products...");
-        final String url = urlStr.replaceAll(" ","%20");
+    private void JSONProducts() {
+        final String url = urlStr.replaceAll(" ", "%20");
 
         adapter = new CustomListAdapter(getActivity(), productList);
         adapterCase = new CustomListAdapter(getActivity(), caseList);
         adapterProtector = new CustomListAdapter(getActivity(), protectorList);
-        //adapterParts = new CustomListAdapter(getActivity(), partsList);
         adapterCharge = new CustomListAdapter(getActivity(), chargeList);
+        //adapterParts = new CustomListAdapter(getActivity(), partsList);
 
         pDialog = new ProgressDialog(getActivity());
         // Showing progress dialog before making http request
@@ -270,41 +241,40 @@ public class ProductFragment extends Fragment{
                                     e.printStackTrace();
                                 }
                                 product.setThumbnailUrl(obj.getString("img"));
-                                //product.setRating(((Number) obj.get("rating")).doubleValue());
                                 product.setPrice(obj.getString("price"));
                                 product.setSiteUrl(obj.getString("url"));
                                 product.setType(obj.getString("type"));
                                 product.setBuyUrl(obj.getString("urlbtn"));
                                 product.setShipping(obj.getString("metaf"));
                                 product.setDelivery(obj.getString("antik"));
-                                //System.out.println("==========> " + product.toString());
-                                //System.out.println(url);
-                                System.out.println("Running on Create Product Fragments");
 
-                                // adding product to movies array
+                                // adding product to products array
                                 productList.add(product);
 
-
-                                //String caseType="144", protectorType="176", partsType="174", chargeType="180";
-                                if (product.getType().equals("144")) {
+                                //TO REMEMBER THE TYPES caseType="144", protectorType="176", partsType="174", chargeType="180";
+                                /*if (product.getType().equals("144")) {
                                     caseList.add(product);
-                                    flagCase=true;
-                                    System.out.println("Added a Case.");
-                                }
-                                else if (product.getType().equals("176")) {
+                                    if (flagCase) {
+                                        mTabsAdapter.addTab(mTabHost.newTabSpec("two").setIndicator(getResources().getString(R.string.cases)), CasesFragment.class, null);
+                                    }
+                                    flagCase = false;
+                                } else if (product.getType().equals("176")) {
                                     protectorList.add(product);
-                                    flagProtector=true;
-                                    System.out.println("Added a Protector.");
-                                }
-                                /*else if (product.getType().equals("174")) {
-                                    partsList.add(product);
-                                }*/
-                                else if (product.getType().equals("180")) {
+                                    if (flagProtector) {
+                                        mTabsAdapter.addTab(mTabHost.newTabSpec("three").setIndicator(getResources().getString(R.string.protectos)), ProtectorsFragment.class, null);
+                                    }
+                                    flagProtector = false;
+                                } else if (product.getType().equals("180")) {
                                     chargeList.add(product);
-                                    flagCharge=true;
-                                    System.out.println("Added a Charger.");
-                                }
+                                    if (flagCharge) {
+                                        mTabsAdapter.addTab(mTabHost.newTabSpec("four").setIndicator(getResources().getString(R.string.parts)), ChargersFragment.class, null);
+                                    }
+                                    flagCharge = false;
+                                }*/
 
+                                flagCase = addProductToCat(product,"144", getResources().getString(R.string.cases),caseList,flagCase,CasesFragment.class);
+                                flagProtector = addProductToCat(product,"176",getResources().getString(R.string.protectos),protectorList,flagProtector,ProtectorsFragment.class);
+                                flagCharge = addProductToCat(product,"180",getResources().getString(R.string.parts),chargeList,flagCharge,ChargersFragment.class);
 
 
                             } catch (JSONException e) {
@@ -312,6 +282,7 @@ public class ProductFragment extends Fragment{
                             }
 
                         }
+
 
                         // notifying list adapter about data changes
                         // so that it renders the list view with updated data
@@ -331,5 +302,25 @@ public class ProductFragment extends Fragment{
 
         // Adding request to request queue
         AppController.getInstance().addToRequestQueue(productReq);
+
+    }
+
+    /*product = proion pou prostheto stin lista
+      catNumber = noumero katigorias pou prostethete.
+      catName = onoma listas pou tha fainetai sto tab
+      catList = lista pou tha ginetai add to product
+      flagCat = elegxei ean uparxei i katigoria san tab
+      className = pou tha kanei redirect to tab
+     */
+    private boolean addProductToCat(Product product, String catNumber, String catName, List<Product> catList, boolean flagCat, Class className )
+    {
+        if (product.getType().equals(catNumber)) {
+            catList.add(product);
+            if (flagCat) {
+                mTabsAdapter.addTab(mTabHost.newTabSpec("Tab_").setIndicator(catName), className, null);
+            }
+            flagCat = false;
+        }
+        return flagCat;
     }
 }

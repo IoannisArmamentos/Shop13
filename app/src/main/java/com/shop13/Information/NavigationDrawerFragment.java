@@ -1,4 +1,4 @@
-package com.shop13;
+package com.shop13.Information;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -17,15 +17,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.shop13.Information.About;
-import com.shop13.Information.Exit;
-import com.shop13.Information.HowToOrder;
+import com.shop13.Interface.NavigationDrawerCallbacks;
+import com.shop13.model.NavigationItem;
+import com.shop13.R;
+import com.shop13.adater.NavigationDrawerAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
-
-/*import android.support.v4.app.FragmentManager;
-import android.app.FragmentManager;*/
 
 /**
  * Fragment used for managing interactions for and presentation of a navigation drawer.
@@ -113,8 +111,8 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
     @Override
     public void onNavigationDrawerItemSelected(int position) {
         //NavigationDrawer epilegoyme kapoia kartela kai anoigei to antistoixo fragment.Ousiastika einai ena menu
-        Fragment fragment = null ; // Vazoume null gt petaei sfalma an dn to kathorisoume apo tin arxi kai kapoio case den to exei
-                                   // Mas ta kanein dld karpouzia kai planites antistoixa.
+        Fragment fragment = null; // Vazoume null gt petaei sfalma an dn to kathorisoume apo tin arxi kai kapoio case den to exei
+        // Mas ta kanein dld karpouzia kai planites antistoixa.
         android.app.FragmentManager fragmentManager = getFragmentManager(); // For AppCompat use getSupportFragmentManager
         switch (position) {
             default:
@@ -240,7 +238,7 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
     @Override
     public void onAttach(Activity activity) {
         // To pire
-        myContext=(FragmentActivity) activity;
+        myContext = (FragmentActivity) activity;
         super.onAttach(activity);
         try {
             mCallbacks = (NavigationDrawerCallbacks) activity;

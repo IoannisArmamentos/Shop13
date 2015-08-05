@@ -1,4 +1,4 @@
-package com.shop13;
+package com.shop13.model;
 
 
 import android.graphics.drawable.Drawable;
