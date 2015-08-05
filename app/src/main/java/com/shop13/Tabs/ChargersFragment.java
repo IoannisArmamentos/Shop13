@@ -15,6 +15,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.shop13.MainActivity;
+import com.shop13.ProductFragment;
 import com.shop13.R;
 import com.shop13.adater.CustomListAdapter;
 import com.shop13.app.AppController;
@@ -51,7 +52,7 @@ public class ChargersFragment extends Fragment
     {
         View root = inflater.inflate(R.layout.chargers_fragment ,container,false);
         listView = (ListView) root.findViewById(R.id.list);
-        listView.setAdapter(AllProductsFragment.adapterCharge);
+        listView.setAdapter(ProductFragment.adapterCharge);
         System.out.println("Running on Create View chargers");
 
         return root;

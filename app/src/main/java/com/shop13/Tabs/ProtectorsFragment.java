@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
+import com.shop13.ProductFragment;
 import com.shop13.R;
 
 public class ProtectorsFragment extends Fragment
@@ -32,7 +33,7 @@ public class ProtectorsFragment extends Fragment
     {
         View root = inflater.inflate(R.layout.protectors_fragment,container,false);
         listView = (ListView) root.findViewById(R.id.list);
-        listView.setAdapter(AllProductsFragment.adapterProtector);
+        listView.setAdapter(ProductFragment.adapterProtector);
         System.out.println("Running on Create View protectors");
 
         return root;

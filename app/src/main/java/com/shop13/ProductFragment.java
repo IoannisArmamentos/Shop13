@@ -1,24 +1,42 @@
 package com.shop13;
 
 
+import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 import android.widget.TabHost;
 import android.widget.TabWidget;
 
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.shop13.Tabs.AllProductsFragment;
 import com.shop13.Tabs.CasesFragment;
 import com.shop13.Tabs.ChargersFragment;
 import com.shop13.Tabs.ProtectorsFragment;
+import com.shop13.adater.CustomListAdapter;
+import com.shop13.app.AppController;
+import com.shop13.model.Product;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class ProductFragment extends Fragment{
 
@@ -26,6 +44,24 @@ public class ProductFragment extends Fragment{
     public static TabHost mTabHost;
     private ViewPager mViewPager;
     private TabsAdapter mTabsAdapter;
+    //**********************************/
+    // Log tag
+    private static final String TAG = MainActivity.class.getSimpleName();
+
+    // Products json url
+    static String device = Build.MODEL;
+    private static final String urlStr = "http://www.shop13.gr/app_search.php?model=" + device;
+
+    private ProgressDialog pDialog;
+    private List<Product> productList = new ArrayList<Product>();
+    private List<Product> caseList = new ArrayList<Product>();
+    private List<Product> protectorList = new ArrayList<Product>();
+    //private List<Product> partsList = new ArrayList<Product>();
+    private List<Product> chargeList = new ArrayList<Product>();
+
+    private ListView listView;
+    public static CustomListAdapter adapter, adapterCase, adapterProtector, adapterCharge;
+    boolean flagCase=false, flagProtector=false, flagCharge=false;
 
     public ProductFragment() {
     }
@@ -35,13 +71,22 @@ public class ProductFragment extends Fragment{
     {
         super.onCreate(instance);
 
+
+    }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        System.out.println("On attach....");
+        JSONProducts();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.product_fragment, container, false);
 
+
+        View v = inflater.inflate(R.layout.product_fragment, container, false);
         mTabHost = (TabHost) v.findViewById(android.R.id.tabhost);
         mTabHost.setup();
 
@@ -50,10 +95,23 @@ public class ProductFragment extends Fragment{
 
         // Here we load the content for each tab.
         mTabsAdapter.addTab(mTabHost.newTabSpec("one").setIndicator(getResources().getString(R.string.all)), AllProductsFragment.class, null);
-        mTabsAdapter.addTab(mTabHost.newTabSpec("two").setIndicator(getResources().getString(R.string.cases)), CasesFragment.class, null);
-        mTabsAdapter.addTab(mTabHost.newTabSpec("three").setIndicator(getResources().getString(R.string.protectos)), ProtectorsFragment.class, null);
-        mTabsAdapter.addTab(mTabHost.newTabSpec("four").setIndicator(getResources().getString(R.string.parts)), ChargersFragment.class, null);
-        return v;
+
+        //JSONProducts();
+        System.out.println("Adding tabs...");
+        if (flagCase) {
+            System.out.println("Added case tab.");
+            mTabsAdapter.addTab(mTabHost.newTabSpec("two").setIndicator(getResources().getString(R.string.cases)), CasesFragment.class, null);
+        }
+        if (flagProtector) {
+            System.out.println("Added protector tab.");
+            mTabsAdapter.addTab(mTabHost.newTabSpec("three").setIndicator(getResources().getString(R.string.protectos)), ProtectorsFragment.class, null);
+        }
+
+        if (flagCharge) {
+            System.out.println("Added charger tab.");
+            mTabsAdapter.addTab(mTabHost.newTabSpec("four").setIndicator(getResources().getString(R.string.parts)), ChargersFragment.class, null);
+        }
+            return v;
     }
 
     public static class TabsAdapter extends FragmentPagerAdapter implements TabHost.OnTabChangeListener, ViewPager.OnPageChangeListener
@@ -159,5 +217,119 @@ public class ProductFragment extends Fragment{
         public void onPageScrollStateChanged(int state)
         {
         }
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        hidePDialog();
+    }
+
+
+    private void hidePDialog() {
+        if (pDialog != null) {
+            pDialog.dismiss();
+            pDialog = null;
+        }
+    }
+
+    public void JSONProducts()
+    {
+        System.out.println("Calling products...");
+        final String url = urlStr.replaceAll(" ","%20");
+
+        adapter = new CustomListAdapter(getActivity(), productList);
+        adapterCase = new CustomListAdapter(getActivity(), caseList);
+        adapterProtector = new CustomListAdapter(getActivity(), protectorList);
+        //adapterParts = new CustomListAdapter(getActivity(), partsList);
+        adapterCharge = new CustomListAdapter(getActivity(), chargeList);
+
+        pDialog = new ProgressDialog(getActivity());
+        // Showing progress dialog before making http request
+        pDialog.setMessage("Loading...");
+        pDialog.show();
+
+        // Creating volley request obj
+        JsonArrayRequest productReq = new JsonArrayRequest(url,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        Log.d(TAG, response.toString());
+                        hidePDialog();
+
+                        // Parsing json
+                        for (int i = 0; i < response.length(); i++) {
+                            try {
+
+                                JSONObject obj = response.getJSONObject(i);
+                                Product product = new Product();
+                                product.setId(((Number) obj.get("id")).intValue());
+                                try {
+                                    product.setName(new String(obj.getString("name").getBytes("ISO-8859-7"), "UTF-8"));
+                                } catch (UnsupportedEncodingException e) {
+                                    e.printStackTrace();
+                                }
+                                product.setThumbnailUrl(obj.getString("img"));
+                                //product.setRating(((Number) obj.get("rating")).doubleValue());
+                                product.setPrice(obj.getString("price"));
+                                product.setSiteUrl(obj.getString("url"));
+                                product.setType(obj.getString("type"));
+                                product.setBuyUrl(obj.getString("urlbtn"));
+                                product.setShipping(obj.getString("metaf"));
+                                product.setDelivery(obj.getString("antik"));
+                                //System.out.println("==========> " + product.toString());
+                                //System.out.println(url);
+                                System.out.println("Running on Create Product Fragments");
+
+                                // adding product to movies array
+                                productList.add(product);
+
+
+                                //String caseType="144", protectorType="176", partsType="174", chargeType="180";
+                                if (product.getType().equals("144")) {
+                                    caseList.add(product);
+                                    flagCase=true;
+                                    System.out.println("Added a Case.");
+                                }
+                                else if (product.getType().equals("176")) {
+                                    protectorList.add(product);
+                                    flagProtector=true;
+                                    System.out.println("Added a Protector.");
+                                }
+                                /*else if (product.getType().equals("174")) {
+                                    partsList.add(product);
+                                }*/
+                                else if (product.getType().equals("180")) {
+                                    chargeList.add(product);
+                                    flagCharge=true;
+                                    System.out.println("Added a Charger.");
+                                }
+
+
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+
+                        }
+
+                        // notifying list adapter about data changes
+                        // so that it renders the list view with updated data
+                        adapter.notifyDataSetChanged();
+                        adapterCase.notifyDataSetChanged();
+                        adapterProtector.notifyDataSetChanged();
+                        adapterCharge.notifyDataSetChanged();
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                VolleyLog.d(TAG, "Error: " + error.getMessage());
+                hidePDialog();
+
+            }
+        });
+
+        // Adding request to request queue
+        AppController.getInstance().addToRequestQueue(productReq);
     }
 }

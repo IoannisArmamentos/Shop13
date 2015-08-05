@@ -32,7 +32,8 @@ import java.util.List;
 public class AllProductsFragment extends Fragment
 {
 
-    // Log tag
+    private ListView listView;
+    /*// Log tag
     private static final String TAG = MainActivity.class.getSimpleName();
 
     // Products json url
@@ -48,12 +49,12 @@ public class AllProductsFragment extends Fragment
 
     private ListView listView;
     public static CustomListAdapter adapter, adapterCase, adapterProtector, adapterCharge;
-    boolean flagCase=false, flagProtector=false, flagCharge=false;
+    boolean flagCase=false, flagProtector=false, flagCharge=false;*/
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        final String url = urlStr.replaceAll(" ","%20");
+       /* final String url = urlStr.replaceAll(" ","%20");
 
         adapter = new CustomListAdapter(getActivity(), productList);
         adapterCase = new CustomListAdapter(getActivity(), caseList);
@@ -111,9 +112,9 @@ public class AllProductsFragment extends Fragment
                                     protectorList.add(product);
                                     flagProtector=true;
                                 }
-                                /*else if (product.getType().equals("174")) {
+                                else if (product.getType().equals("174")) {
                                     partsList.add(product);
-                                }*/
+                                }
                                 else if (product.getType().equals("180")) {
                                     chargeList.add(product);
                                     flagCharge=true;
@@ -144,7 +145,7 @@ public class AllProductsFragment extends Fragment
         });
 
         // Adding request to request queue
-        AppController.getInstance().addToRequestQueue(productReq);
+        AppController.getInstance().addToRequestQueue(productReq);*/
 
 
         /*if(!flagCase)
@@ -170,8 +171,8 @@ public class AllProductsFragment extends Fragment
 
         View root = inflater.inflate(R.layout.allproducts_fragment,container,false);
         listView = (ListView) root.findViewById(R.id.list);
-        listView.setAdapter(AllProductsFragment.adapter);
-        System.out.println("Running on Create View all products");
+        listView.setAdapter(ProductFragment.adapter);
+        System.out.println("Running on Create View ");
         return root;
 
 
@@ -203,17 +204,4 @@ public class AllProductsFragment extends Fragment
     }
 
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        hidePDialog();
-    }
-
-
-    private void hidePDialog() {
-        if (pDialog != null) {
-            pDialog.dismiss();
-            pDialog = null;
-        }
-    }
 }

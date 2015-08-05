@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import com.shop13.MainActivity;
+import com.shop13.ProductFragment;
 import com.shop13.R;
 
 public class CasesFragment extends Fragment
@@ -35,7 +36,7 @@ public class CasesFragment extends Fragment
     {
         View root = inflater.inflate(R.layout.cases_fragment,container,false);
         listView = (ListView) root.findViewById(R.id.list);
-        listView.setAdapter(AllProductsFragment.adapterCase);
+        listView.setAdapter(ProductFragment.adapterCase);
         System.out.println("Running on Create View cases");
 
         return root;
