@@ -1,10 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    card_view:cardElevation="2dp"
+    card_view:cardBackgroundColor="@android:color/white"
+    card_view:cardCornerRadius="4dp"
+    card_view:contentPadding="8dp"
+    android:background="#03A9F4"
+    >
+
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:background="@drawable/list_row_selector"
-    android:padding="8dp" >
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+     >
 
     <!-- Product Name -->
     <TextView
@@ -24,8 +37,6 @@
         android:layout_alignParentLeft="true"
         android:layout_marginRight="8dp" />
 
-
-
     <!-- Price -->
     <TextView
         android:id="@+id/price"
@@ -33,22 +44,25 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/name"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="25dip"
-        android:layout_toRightOf="@+id/thumbnail"
-        android:gravity="right"
+        android:layout_marginTop="50dip"
+        android:gravity="center"
         android:textColor="@color/price"
-        android:textSize="@dimen/price" />
+        android:ems="10"
+        android:textSize="@dimen/price"
+        android:layout_above="@+id/button"
+        android:layout_toRightOf="@+id/thumbnail"
+        android:layout_toEndOf="@+id/thumbnail" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ΑΓΟΡΑ"
+        android:text="@string/agora"
         android:id="@+id/button"
-        android:layout_below="@+id/price"
-        android:layout_centerInParent="true"
-        android:layout_toRightOf="@+id/thumbnail"
-        android:layout_marginTop="25dip"
-        android:textSize="@dimen/button" />
+        android:textSize="@dimen/button"
+        android:layout_alignBottom="@+id/thumbnail"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 
 </RelativeLayout>
+</android.support.v7.widget.CardView>

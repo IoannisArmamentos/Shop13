@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-
     >
 
     <ListView
@@ -13,7 +12,7 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:divider="@color/list_divider"
-        android:dividerHeight="1dp"
+        android:dividerHeight="8dp"
         android:listSelector="@drawable/list_row_selector">
     </ListView>
 
