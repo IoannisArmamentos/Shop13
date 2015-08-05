@@ -1,4 +1,4 @@
-package com.shop13.Information;
+package com.shop13;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -17,13 +17,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.shop13.Interface.NavigationDrawerCallbacks;
-import com.shop13.model.NavigationItem;
-import com.shop13.R;
-import com.shop13.adater.NavigationDrawerAdapter;
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
+import com.shop13.Information.About;
+import com.shop13.Information.Exit;
+import com.shop13.Information.HowToOrder;
 
 import java.util.ArrayList;
 import java.util.List;
+
+/*import android.support.v4.app.FragmentManager;
+import android.app.FragmentManager;*/
 
 /**
  * Fragment used for managing interactions for and presentation of a navigation drawer.
@@ -31,7 +35,7 @@ import java.util.List;
  * design guidelines</a> for a complete explanation of the behaviors implemented here.
  */
 public class NavigationDrawerFragment extends Fragment implements NavigationDrawerCallbacks {
-
+    private Tracker mTracker;
 
     private FragmentActivity myContext;
     /**
@@ -111,12 +115,19 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
     @Override
     public void onNavigationDrawerItemSelected(int position) {
         //NavigationDrawer epilegoyme kapoia kartela kai anoigei to antistoixo fragment.Ousiastika einai ena menu
-        Fragment fragment = null; // Vazoume null gt petaei sfalma an dn to kathorisoume apo tin arxi kai kapoio case den to exei
-        // Mas ta kanein dld karpouzia kai planites antistoixa.
+        Fragment fragment = null ; // Vazoume null gt petaei sfalma an dn to kathorisoume apo tin arxi kai kapoio case den to exei
+                                   // Mas ta kanein dld karpouzia kai planites antistoixa.
         android.app.FragmentManager fragmentManager = getFragmentManager(); // For AppCompat use getSupportFragmentManager
         switch (position) {
             default:
             case 0: //Products
+
+//test
+                GoogleAnal.tracker().send(new HitBuilders.EventBuilder("ui", "open")
+                        .setLabel("trololol")
+                        .build());
+
+//end test
                 getActivity().setTitle(Build.MODEL + " | " + "Προϊόντα ");
                 fragment = new Fragment();
                 selectItem(position); //Xreiazetai gia na klinei to drawer
@@ -238,7 +249,7 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
     @Override
     public void onAttach(Activity activity) {
         // To pire
-        myContext = (FragmentActivity) activity;
+        myContext=(FragmentActivity) activity;
         super.onAttach(activity);
         try {
             mCallbacks = (NavigationDrawerCallbacks) activity;
