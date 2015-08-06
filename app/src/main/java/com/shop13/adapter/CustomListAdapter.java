@@ -73,7 +73,7 @@ public class CustomListAdapter extends BaseAdapter {
         // thumbnail image
         thumbNail.setImageUrl(m.getThumbnailUrl(), imageLoader);
 
-        // name
+        // name da
         //name.setText(m.getName());
         name.setClickable(true);
         name.setMovementMethod(LinkMovementMethod.getInstance());
