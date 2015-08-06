@@ -6,9 +6,11 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 
+import com.google.android.gms.analytics.HitBuilders;
 import com.shop13.DrawerActions.ProductFragment;
 import com.shop13.UI.NavigationDrawerCallbacks;
 import com.shop13.UI.NavigationDrawerFragment;
+import com.shop13.app.AppController;
 
 
 public class MainActivity extends ActionBarActivity
@@ -37,6 +39,19 @@ public class MainActivity extends ActionBarActivity
         mNavigationDrawerFragment.setup(R.id.fragment_drawer, (DrawerLayout) findViewById(R.id.drawer), mToolbar);
 
         //Fortnwnei me to kalosirthate to Products
+        /*GoogleAnal.tracker.send(new HitBuilders.EventBuilder("ui", "open")
+                .setCategory("Device")
+                .setLabel(Build.MODEL)
+                .build());*/
+        /*GoogleAnalytics analytics = GoogleAnalytics.getInstance(this);
+        Tracker tracker = analytics.newTracker("UA-65982739-1"); // Send hits to tracker id UA-XXXX-Y*/
+
+// All subsequent hits will be send with screen name = "main screen"
+        /*tracker.setScreenName("main screen");*/
+        AppController.tracker().send(new HitBuilders.EventBuilder()
+                .setCategory("Device")
+                .setAction(Build.MODEL)
+                .build());
         ProductFragment fragment;
         android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
         fragment = new ProductFragment();

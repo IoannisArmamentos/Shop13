@@ -22,8 +22,8 @@ import com.google.android.gms.analytics.Tracker;
 import com.shop13.DrawerActions.About;
 import com.shop13.DrawerActions.Exit;
 import com.shop13.DrawerActions.HowToOrder;
-import com.shop13.GoogleAnal;
 import com.shop13.R;
+import com.shop13.app.AppController;
 import com.shop13.model.NavigationItem;
 
 import java.util.ArrayList;
@@ -124,7 +124,7 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
         switch (position) {
             default:
             case 0: //Products
-                GoogleAnal.tracker().send(new HitBuilders.EventBuilder()
+                AppController.tracker().send(new HitBuilders.EventBuilder()
                         .setCategory(myContext.getString(R.string.symvataproionta))
                         .setAction("click")
                         .build());
@@ -136,7 +136,7 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
                         .commit();
                 break;
             case 1: //Shop13
-                GoogleAnal.tracker().send(new HitBuilders.EventBuilder()
+                AppController.tracker().send(new HitBuilders.EventBuilder()
                         .setCategory(myContext.getString(R.string.app_name))
                         .setAction("click")
                         .build());
@@ -148,7 +148,7 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
                         .commit();
                 break;
             case 2: //HowToOrder
-                GoogleAnal.tracker().send(new HitBuilders.EventBuilder()
+                AppController.tracker().send(new HitBuilders.EventBuilder()
                         .setCategory(myContext.getString(R.string.pwsparaggelnw))
                         .setAction("click")
                         .build());
@@ -160,7 +160,7 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
                         .commit();
                 break;
             case 3: //Exit
-                GoogleAnal.tracker().send(new HitBuilders.EventBuilder()
+                AppController.tracker().send(new HitBuilders.EventBuilder()
                         .setCategory("Exit")
                         .setAction("click")
                         .setLabel("I don't want to live on this planet anymore")
