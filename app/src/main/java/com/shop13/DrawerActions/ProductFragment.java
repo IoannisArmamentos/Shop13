@@ -1,4 +1,4 @@
-package com.shop13;
+package com.shop13.DrawerActions;
 
 
 import android.app.ProgressDialog;
@@ -21,6 +21,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.shop13.MainActivity;
+import com.shop13.R;
 import com.shop13.Tabs.AllProductsFragment;
 import com.shop13.Tabs.CasesFragment;
 import com.shop13.Tabs.ChargersFragment;

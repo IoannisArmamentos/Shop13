@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-import com.shop13.ProductFragment;
+import com.shop13.DrawerActions.ProductFragment;
 import com.shop13.R;
 
 public class ProtectorsFragment extends Fragment {
