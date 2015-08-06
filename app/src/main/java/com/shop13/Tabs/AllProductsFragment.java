@@ -8,14 +8,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
+import com.google.android.gms.analytics.HitBuilders;
 import com.shop13.DrawerActions.ProductFragment;
 import com.shop13.R;
+import com.shop13.app.AppController;
 
 public class AllProductsFragment extends Fragment {
     private ListView listView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        AppController.tracker().send(new HitBuilders.EventBuilder()
+                .setCategory(getActivity().getString(R.string.clicktab))
+                .setAction(getActivity().getString(R.string.all))
+                .build());
         super.onCreate(savedInstanceState);
     }
 
@@ -24,7 +30,6 @@ public class AllProductsFragment extends Fragment {
         View root = inflater.inflate(R.layout.allproducts_fragment, container, false);
         listView = (ListView) root.findViewById(R.id.list);
         listView.setAdapter(ProductFragment.adapter);
-
         return root;
     }
 

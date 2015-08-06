@@ -202,7 +202,6 @@ public class ProductFragment extends Fragment {
         adapterCase = new CustomListAdapter(getActivity(), caseList);
         adapterProtector = new CustomListAdapter(getActivity(), protectorList);
         adapterCharger = new CustomListAdapter(getActivity(), chargeList);
-        //adapterParts = new CustomListAdapter(getActivity(), partsList);
 
         pDialog = new ProgressDialog(getActivity());
         // Showing progress dialog before making http request

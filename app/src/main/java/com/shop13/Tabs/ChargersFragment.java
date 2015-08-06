@@ -8,14 +8,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
+import com.google.android.gms.analytics.HitBuilders;
 import com.shop13.DrawerActions.ProductFragment;
 import com.shop13.R;
+import com.shop13.app.AppController;
 
 public class ChargersFragment extends Fragment {
     private ListView listView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        AppController.tracker().send(new HitBuilders.EventBuilder()
+                .setCategory(getActivity().getString(R.string.clicktab))
+                .setAction(getActivity().getString(R.string.chargers))
+                .build());
         super.onCreate(savedInstanceState);
     }
 

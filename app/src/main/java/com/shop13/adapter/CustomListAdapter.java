@@ -109,7 +109,7 @@ public class CustomListAdapter extends BaseAdapter {
             public void onClick(View v) {
                 AppController.tracker().send(new HitBuilders.EventBuilder()
                         .setCategory("Click")
-                        .setAction("ацояа")
+                        .setAction("AGORA")
                         .setLabel(m.getName())
                         .build());
                 Uri uri = Uri.parse(m.getBuyUrl()); // missing 'http://' will cause crashed
