@@ -108,8 +108,9 @@ public class CustomListAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 AppController.tracker().send(new HitBuilders.EventBuilder()
-                        .setCategory(m.getName())
+                        .setCategory("Click")
                         .setAction("ацояа")
+                        .setLabel(m.getName())
                         .build());
                 Uri uri = Uri.parse(m.getBuyUrl()); // missing 'http://' will cause crashed
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);

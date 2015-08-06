@@ -125,8 +125,8 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
             default:
             case 0: //Products
                 AppController.tracker().send(new HitBuilders.EventBuilder()
-                        .setCategory(myContext.getString(R.string.symvataproionta))
-                        .setAction("click")
+                        .setCategory(myContext.getString(R.string.clickkartelas))
+                        .setAction(myContext.getString(R.string.symvataproionta))
                         .build());
                 getActivity().setTitle(Build.MODEL + " | " + "Προϊόντα ");
                 fragment = new Fragment();
@@ -137,8 +137,8 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
                 break;
             case 1: //Shop13
                 AppController.tracker().send(new HitBuilders.EventBuilder()
-                        .setCategory(myContext.getString(R.string.app_name))
-                        .setAction("click")
+                        .setCategory(myContext.getString(R.string.clickkartelas))
+                        .setAction(myContext.getString(R.string.app_name))
                         .build());
                 getActivity().setTitle(myContext.getString(R.string.app_name));
                 fragment = new About();
@@ -149,8 +149,8 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
                 break;
             case 2: //HowToOrder
                 AppController.tracker().send(new HitBuilders.EventBuilder()
-                        .setCategory(myContext.getString(R.string.pwsparaggelnw))
-                        .setAction("click")
+                        .setCategory(myContext.getString(R.string.clickkartelas))
+                        .setAction(myContext.getString(R.string.pwsparaggelnw))
                         .build());
                 getActivity().setTitle(myContext.getString(R.string.pwsparaggelnw));
                 fragment = new HowToOrder();
@@ -161,8 +161,8 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
                 break;
             case 3: //Exit
                 AppController.tracker().send(new HitBuilders.EventBuilder()
-                        .setCategory("Exit")
-                        .setAction("click")
+                        .setCategory(myContext.getString(R.string.clickkartelas))
+                        .setAction("Exit")
                         .setLabel("I don't want to live on this planet anymore")
                         .build());
                 fragment = new Exit();

@@ -23,7 +23,7 @@ public class ChargersFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.chargers_fragment, container, false);
         listView = (ListView) root.findViewById(R.id.list);
-        listView.setAdapter(ProductFragment.adapterCharge);
+        listView.setAdapter(ProductFragment.adapterCharger);
 
         return root;
     }

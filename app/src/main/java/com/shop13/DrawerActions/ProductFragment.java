@@ -3,7 +3,6 @@ package com.shop13.DrawerActions;
 
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -59,12 +58,11 @@ public class ProductFragment extends Fragment {
     private List<Product> productList = new ArrayList<Product>();
     private List<Product> caseList = new ArrayList<Product>();
     private List<Product> protectorList = new ArrayList<Product>();
-    //private List<Product> partsList = new ArrayList<Product>();
     private List<Product> chargeList = new ArrayList<Product>();
 
     private ListView listView;
-    public static CustomListAdapter adapter, adapterCase, adapterProtector, adapterCharge;
-    boolean flagCase = true, flagProtector = true, flagCharge = true;
+    public static CustomListAdapter adapter, adapterCase, adapterProtector, adapterCharger;
+    boolean flagCase = true, flagProtector = true, flagCharger = true;
 
     public ProductFragment() {
     }
@@ -72,8 +70,6 @@ public class ProductFragment extends Fragment {
     @Override
     public void onCreate(Bundle instance) {
         super.onCreate(instance);
-
-
     }
 
 
@@ -205,7 +201,7 @@ public class ProductFragment extends Fragment {
         adapter = new CustomListAdapter(getActivity(), productList);
         adapterCase = new CustomListAdapter(getActivity(), caseList);
         adapterProtector = new CustomListAdapter(getActivity(), protectorList);
-        adapterCharge = new CustomListAdapter(getActivity(), chargeList);
+        adapterCharger = new CustomListAdapter(getActivity(), chargeList);
         //adapterParts = new CustomListAdapter(getActivity(), partsList);
 
         pDialog = new ProgressDialog(getActivity());
@@ -259,14 +255,14 @@ public class ProductFragment extends Fragment {
                                     flagProtector = false;
                                 } else if (product.getType().equals("180")) {
                                     chargeList.add(product);
-                                    if (flagCharge) {
+                                    if (flagCharger) {
                                         mTabsAdapter.addTab(mTabHost.newTabSpec("four").setIndicator(getResources().getString(R.string.parts)), ChargersFragment.class, null);
                                     }
-                                    flagCharge = false;
+                                    flagCharger = false;
                                 }*/
                                 flagCase = addProductToCat(product,"144", getResources().getString(R.string.cases),caseList,flagCase,CasesFragment.class);
                                 flagProtector = addProductToCat(product,"176",getResources().getString(R.string.protectos),protectorList,flagProtector,ProtectorsFragment.class);
-                                flagCharge = addProductToCat(product,"180",getResources().getString(R.string.chargers),chargeList,flagCharge,ChargersFragment.class);
+                                flagCharger = addProductToCat(product,"180",getResources().getString(R.string.chargers),chargeList,flagCharger,ChargersFragment.class);
 
                             } catch (JSONException e) {
                                 e.printStackTrace();
@@ -274,13 +270,12 @@ public class ProductFragment extends Fragment {
 
                         }
 
-
                         // notifying list adapter about data changes
                         // so that it renders the list view with updated data
                         adapter.notifyDataSetChanged();
                         adapterCase.notifyDataSetChanged();
                         adapterProtector.notifyDataSetChanged();
-                        adapterCharge.notifyDataSetChanged();
+                        adapterCharger.notifyDataSetChanged();
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -307,8 +302,6 @@ public class ProductFragment extends Fragment {
        /* TextView x = (TextView) mTabHost.getTabWidget().getChildAt(0).findViewById(android.R.id.title);
         x.setTextSize(TypedValue.COMPLEX_UNIT_SP,10);*/
         //System.out.println("=====>Fuck you");
-
-
     }
 
     /*product = proion pou prostheto stin lista
