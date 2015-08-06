@@ -1,4 +1,4 @@
-package com.shop13.Information;
+package com.shop13.DrawerActions;
 
 import android.app.Fragment;
 import android.os.Bundle;

@@ -40,7 +40,7 @@ public class GoogleAnal extends Application {
     public void onCreate() {
         super.onCreate();
         analytics = com.google.android.gms.analytics.GoogleAnalytics.getInstance(this);
-        //analytics.setLocalDispatchPeriod(1800);
+        analytics.setLocalDispatchPeriod(1800);
 
         //Tracker id
         tracker = analytics.newTracker("UA-65982739-1");
@@ -54,5 +54,21 @@ public class GoogleAnal extends Application {
 
         // Enable automatic activity tracking for your app
         tracker.enableAutoActivityTracking(true);
+
+        // All subsequent hits will be send with screen name = "main screen"
+        tracker.setScreenName("main screen");
+
+/*        tracker.send(new HitBuilders.EventBuilder()
+                .setCategory("UX")
+                .setAction("click")
+                .setLabel("submit")
+                .build());
+
+// Builder parameters can overwrite the screen name set on the tracker.
+        tracker.send(new HitBuilders.EventBuilder()
+                .setCategory("UX")
+                .setAction("click")
+                .setLabel("help popup")
+                .build());*/
     }
 }

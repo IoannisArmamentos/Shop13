@@ -6,7 +6,31 @@
     <string name="action_cases">Θήκες</string>
     <string name="action_screenprotectors">Προστασία Οθόνης</string>
     <string name="action_chargers">ΦΟΡΤΙΣΤΕΣ</string>
+
     <string name="open_times">Δευτέρα 9:00 - 17:00\nΤρίτη 9:00 - 17:00 και 18:00 - 21:00\nΤετάρτη 9:00 - 17:00\nΠέμπτη 9:00 - 17:00 και 18:00 - 21:00\nΠαρασκ. 9:00 - 17:00 και 18:00 - 21:00\nΣάββατο 9:00 - 14:00\nΚυριακή Κλειστά\n\nΟδός Λ.Λογοθέτη 14,\nΚαρλόβασι Σάμου\nΤ.Κ. 83200\n\nΑ.Ε Γ.Ε.ΜΗ.: 052086751000</string>
+
+    <string name="about1">Τρόποι Επικοινωνίας</string>
+    <string name="about2">☎ Τηλ. Κέντρο : 801-11-56200</string>
+    <string name="about3">✆ Από κινητό : 211-800-1615</string>
+    <string name="about4">\@ Email: sales@shop13.gr</string>
+    <string name="about5">Ωράριο λειτουργίας</string>
+    <string name="about6">Δευτέρα</string>
+    <string name="about7">9:00 - 17:00\nΚλειστά</string>
+    <string name="about8">Τρίτη</string>
+    <string name="about9">9:00 - 17:00\n18:00 - 21:00</string>
+    <string name="about10">Τετάρτη</string>
+    <string name="about11">9:00 - 17:00\nΚλειστά</string>
+    <string name="about12">Πέμπτη</string>
+    <string name="about13">9:00 - 17:00\n18:00 - 21:00</string>
+    <string name="about14">Παρασκευή</string>
+    <string name="about15">9:00 - 17:00\n18:00 - 21:00</string>
+    <string name="about16">Σάββατο</string>
+    <string name="about17">9:00 - 14:00\nΚλειστά</string>
+    <string name="about18">Κυριακή</string>
+    <string name="about19">Κλειστά</string>
+    <string name="about20">Ταυτότητα</string>
+    <string name="about21">SHOP13.GR\nΟδός Λ.Λογοθέτη 14,\nΚαρλόβασι Σάμου\nΤ.Κ. 83200\n\nΑ.Ε Γ.Ε.ΜΗ.: 052086751000</string>
+
     <string name="howtoordertext1">Σχετικά</string>
     <string name="howtoordertext2">Η εφαρμογή βρίσκει αυτόματα τη μάρκα και το μοντέλο του κινητού και σας παρουσιάζει τα διαθέσιμα προϊόντα.</string>
     <string name="howtoordertext3">Κατηγορίες</string>
@@ -17,7 +41,14 @@
     <string name="all">ΟΛΑ</string>
     <string name="cases">ΘΗΚΕΣ</string>
     <string name="protectos">ΠΡΟΣΤΑΣΙΑ ΟΘΟΝΗΣ</string>
-    <string name="parts">ΦΟΡΤΙΣΤΕΣ</string>
+    <string name="chargers">ΦΟΡΤΙΣΤΕΣ</string>
     <string name="agora">ΑΓΟΡΑ</string>
+
+    <string name="pwsparaggelnw">Πως παραγγέλνω</string>
+    <string name="symvataproionta">Συμβατά Προϊόντα</string>
+    <string name="eksodos">Έξοδος</string>
+
+
+
 
 </resources>

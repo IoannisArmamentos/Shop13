@@ -1,7 +1,6 @@
 package com.shop13;
 
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Build;
@@ -11,14 +10,12 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TabHost;
 import android.widget.TabWidget;
-import android.widget.TextView;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -28,7 +25,7 @@ import com.shop13.Tabs.AllProductsFragment;
 import com.shop13.Tabs.CasesFragment;
 import com.shop13.Tabs.ChargersFragment;
 import com.shop13.Tabs.ProtectorsFragment;
-import com.shop13.adater.CustomListAdapter;
+import com.shop13.adapter.CustomListAdapter;
 import com.shop13.app.AppController;
 import com.shop13.model.Product;
 

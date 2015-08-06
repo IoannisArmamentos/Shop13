@@ -32,19 +32,19 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/about2"
+                    android:id="@+id/about1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:ems="10"
                     android:gravity="center"
-                    android:text="Τρόποι Επικοινωνίας"
+                    android:text="@string/about1"
                     android:textColor="#212121"
                     android:textSize="22dp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/about3"
+                    android:id="@+id/about2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -54,7 +54,21 @@
                     android:autoLink="phone"
                     android:clickable="true"
                     android:ems="10"
-                    android:text="☎ Τηλ. Κέντρο : 801-11-56200"
+                    android:text="@string/about2"
+                    android:textColor="#727272"
+                    android:textSize="19dp" />
+
+                <TextView
+                    android:id="@+id/about3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:autoLink="phone"
+                    android:clickable="true"
+                    android:ems="10"
+                    android:text="@string/about3"
                     android:textColor="#727272"
                     android:textSize="19dp" />
 
@@ -65,24 +79,10 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:autoLink="phone"
-                    android:clickable="true"
-                    android:ems="10"
-                    android:text="✆ Από κινητό : 211-800-1615"
-                    android:textColor="#727272"
-                    android:textSize="19dp" />
-
-                <TextView
-                    android:id="@+id/about5"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
                     android:autoLink="email"
                     android:clickable="true"
                     android:ems="10"
-                    android:text="\@ Email: sales@shop13.gr"
+                    android:text="@string/about4"
                     android:textColor="#727272"
                     android:textSize="19dp" />
             </LinearLayout>
@@ -109,29 +109,16 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/about6"
+                    android:id="@+id/about5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:ems="10"
                     android:gravity="center"
-                    android:text="Ωράριο λειτουργίας"
+                    android:text="@string/about5"
                     android:textColor="#212121"
                     android:textSize="22dp"
                     android:textStyle="bold" />
-
-                <!--<TextView
-                    android:id="@+id/about7"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginTop="10dp"
-                    android:ems="10"
-                    android:text="@string/open_times"
-                    android:textColor="#727272"
-                    android:textSize="19sp" />-->
 
                 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
                     android:layout_width="match_parent"
@@ -144,23 +131,11 @@
                     android:stretchColumns="1">
                     <TableRow>
                         <TextView
-                            android:text="Δευτέρα"
+                            android:text="@string/about6"
                             android:textSize="19sp"
                             android:padding="3dip" />
                         <TextView
-                            android:text="9:00 - 17:00\nΚλειστά"
-                            android:textSize="19sp"
-                            android:gravity="right"
-                            android:padding="3dip" />
-                    </TableRow>
-
-                    <TableRow>
-                        <TextView
-                            android:text="Τρίτη"
-                            android:textSize="19sp"
-                            android:padding="3dip" />
-                        <TextView
-                            android:text="9:00 - 17:00\n18:00 - 21:00"
+                            android:text="@string/about7"
                             android:textSize="19sp"
                             android:gravity="right"
                             android:padding="3dip" />
@@ -168,23 +143,11 @@
 
                     <TableRow>
                         <TextView
-                            android:text="Τετάρτη"
+                            android:text="@string/about8"
                             android:textSize="19sp"
                             android:padding="3dip" />
                         <TextView
-                            android:text="9:00 - 17:00\nΚλειστά"
-                            android:textSize="19sp"
-                            android:gravity="right"
-                            android:padding="3dip" />
-                    </TableRow>
-
-                    <TableRow>
-                        <TextView
-                            android:text="Πέμπτη"
-                            android:textSize="19sp"
-                            android:padding="3dip" />
-                        <TextView
-                            android:text="9:00 - 17:00\n18:00 - 21:00"
+                            android:text="@string/about9"
                             android:textSize="19sp"
                             android:gravity="right"
                             android:padding="3dip" />
@@ -192,11 +155,11 @@
 
                     <TableRow>
                         <TextView
-                            android:text="Παρασκευή"
+                            android:text="@string/about10"
                             android:textSize="19sp"
                             android:padding="3dip" />
                         <TextView
-                            android:text="9:00 - 17:00\n18:00 - 21:00"
+                            android:text="@string/about11"
                             android:textSize="19sp"
                             android:gravity="right"
                             android:padding="3dip" />
@@ -204,22 +167,46 @@
 
                     <TableRow>
                         <TextView
-                            android:text="Σάββατο"
+                            android:text="@string/about12"
                             android:textSize="19sp"
                             android:padding="3dip" />
                         <TextView
-                            android:text="9:00 - 14:00\nΚλειστά"
+                            android:text="@string/about13"
+                            android:textSize="19sp"
+                            android:gravity="right"
+                            android:padding="3dip" />
+                    </TableRow>
+
+                    <TableRow>
+                        <TextView
+                            android:text="@string/about14"
+                            android:textSize="19sp"
+                            android:padding="3dip" />
+                        <TextView
+                            android:text="@string/about15"
+                            android:textSize="19sp"
+                            android:gravity="right"
+                            android:padding="3dip" />
+                    </TableRow>
+
+                    <TableRow>
+                        <TextView
+                            android:text="@string/about16"
+                            android:textSize="19sp"
+                            android:padding="3dip" />
+                        <TextView
+                            android:text="@string/about17"
                             android:textSize="19sp"
                             android:gravity="right"
                             android:padding="3dip" />
                     </TableRow>
                     <TableRow>
                         <TextView
-                            android:text="Κυριακή"
+                            android:text="@string/about18"
                             android:textSize="19sp"
                             android:padding="3dip" />
                         <TextView
-                            android:text="Κλειστά"
+                            android:text="@string/about19"
                             android:textSize="19sp"
                             android:gravity="right"
                             android:padding="3dip" />
@@ -230,7 +217,7 @@
         </android.support.v7.widget.CardView>
 
         <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/cvHowTo3"
+            android:id="@+id/cvTaytotita"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -243,7 +230,7 @@
             card_view:cardUseCompatPadding="true">
 
             <LinearLayout
-                android:id="@+id/llHowTo3"
+                android:id="@+id/llTaytotita"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvRoundOverViewHeader"
@@ -251,19 +238,19 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/howtoorder5"
+                    android:id="@+id/taytotitaHead"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:ems="10"
                     android:gravity="center"
-                    android:text="Ταυτότητα"
+                    android:text="@string/about20"
                     android:textColor="#212121"
                     android:textSize="22dp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/howtoorder6"
+                    android:id="@+id/taytotitatext"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
@@ -271,7 +258,7 @@
                     android:layout_marginTop="10dp"
                     android:ems="10"
                     android:gravity="center"
-                    android:text="SHOP13.GR\nΟδός Λ.Λογοθέτη 14,\nΚαρλόβασι Σάμου\nΤ.Κ. 83200\n\nΑ.Ε Γ.Ε.ΜΗ.: 052086751000"
+                    android:text="@string/about21"
                     android:textColor="#727272"
                     android:textSize="19dp"
                     android:layout_gravity="center_horizontal" />

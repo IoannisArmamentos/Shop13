@@ -1,4 +1,4 @@
-package com.shop13.adater;
+package com.shop13.adapter;
 
 import android.app.Activity;
 import android.content.Context;

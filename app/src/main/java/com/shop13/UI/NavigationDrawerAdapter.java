@@ -1,4 +1,4 @@
-package com.shop13.adater;
+package com.shop13.UI;
 
 
 import android.support.v7.widget.RecyclerView;
@@ -7,9 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.shop13.Interface.NavigationDrawerCallbacks;
-import com.shop13.model.NavigationItem;
 import com.shop13.R;
+import com.shop13.model.NavigationItem;
+
 
 import java.util.List;
 

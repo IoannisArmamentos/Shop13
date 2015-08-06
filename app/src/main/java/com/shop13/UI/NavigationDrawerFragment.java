@@ -1,4 +1,4 @@
-package com.shop13;
+package com.shop13.UI;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -19,9 +19,12 @@ import android.view.ViewGroup;
 
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
-import com.shop13.Information.About;
-import com.shop13.Information.Exit;
-import com.shop13.Information.HowToOrder;
+import com.shop13.DrawerActions.About;
+import com.shop13.DrawerActions.Exit;
+import com.shop13.DrawerActions.HowToOrder;
+import com.shop13.GoogleAnal;
+import com.shop13.R;
+import com.shop13.model.NavigationItem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -121,13 +124,10 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
         switch (position) {
             default:
             case 0: //Products
-
-//test
-                GoogleAnal.tracker().send(new HitBuilders.EventBuilder("ui", "open")
-                        .setLabel("trololol")
+                GoogleAnal.tracker().send(new HitBuilders.EventBuilder()
+                        .setCategory(myContext.getString(R.string.symvataproionta))
+                        .setAction("click")
                         .build());
-
-//end test
                 getActivity().setTitle(Build.MODEL + " | " + "Προϊόντα ");
                 fragment = new Fragment();
                 selectItem(position); //Xreiazetai gia na klinei to drawer
@@ -136,7 +136,11 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
                         .commit();
                 break;
             case 1: //Shop13
-                getActivity().setTitle("Shop13");
+                GoogleAnal.tracker().send(new HitBuilders.EventBuilder()
+                        .setCategory(myContext.getString(R.string.app_name))
+                        .setAction("click")
+                        .build());
+                getActivity().setTitle(myContext.getString(R.string.app_name));
                 fragment = new About();
                 selectItem(position); //Xreiazetai gia na klinei to drawer
                 fragmentManager.beginTransaction() //Ksekinaei to fragment pou dialextike
@@ -144,7 +148,11 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
                         .commit();
                 break;
             case 2: //HowToOrder
-                getActivity().setTitle("Πως παραγγέλνω");
+                GoogleAnal.tracker().send(new HitBuilders.EventBuilder()
+                        .setCategory(myContext.getString(R.string.pwsparaggelnw))
+                        .setAction("click")
+                        .build());
+                getActivity().setTitle(myContext.getString(R.string.pwsparaggelnw));
                 fragment = new HowToOrder();
                 selectItem(position); //Xreiazetai gia na klinei to drawer
                 fragmentManager.beginTransaction() //Ksekinaei to fragment pou dialextike
@@ -152,6 +160,11 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
                         .commit();
                 break;
             case 3: //Exit
+                GoogleAnal.tracker().send(new HitBuilders.EventBuilder()
+                        .setCategory("Exit")
+                        .setAction("click")
+                        .setLabel("I don't want to live on this planet anymore")
+                        .build());
                 fragment = new Exit();
                 selectItem(position); //Xreiazetai gia na klinei to drawer
                 fragmentManager.beginTransaction() //Ksekinaei to fragment pou dialextike
@@ -159,16 +172,15 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
                         .commit();
                 break;
         }
-
     }
 
     public List<NavigationItem> getMenu() {
         //ArrayList me antikeimena,diladi ta fragments
         List<NavigationItem> items = new ArrayList<NavigationItem>();
-        items.add(new NavigationItem("Συμβατά Προϊόντα", getResources().getDrawable(R.drawable.ic_shopping_music_grey600_36dp)));
-        items.add(new NavigationItem("Shop13", getResources().getDrawable(R.drawable.ic_phone_grey600_36dp)));
-        items.add(new NavigationItem("Πως παραγγέλνω", getResources().getDrawable(R.drawable.ic_help_circle_grey600_36dp)));
-        items.add(new NavigationItem("Έξοδος", getResources().getDrawable(R.drawable.ic_exit_to_app_grey600_36dp)));
+        items.add(new NavigationItem(myContext.getString(R.string.symvataproionta), getResources().getDrawable(R.drawable.ic_shopping_music_grey600_36dp)));
+        items.add(new NavigationItem(myContext.getString(R.string.app_name), getResources().getDrawable(R.drawable.ic_phone_grey600_36dp)));
+        items.add(new NavigationItem(myContext.getString(R.string.pwsparaggelnw), getResources().getDrawable(R.drawable.ic_help_circle_grey600_36dp)));
+        items.add(new NavigationItem(myContext.getString(R.string.eksodos), getResources().getDrawable(R.drawable.ic_exit_to_app_grey600_36dp)));
         return items;
     }
 
