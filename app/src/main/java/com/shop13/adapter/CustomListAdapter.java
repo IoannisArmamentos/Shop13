@@ -4,8 +4,10 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.text.Html;
 import android.text.Spannable;
 import android.text.SpannableString;
+import android.text.method.LinkMovementMethod;
 import android.text.style.RelativeSizeSpan;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -72,7 +74,11 @@ public class CustomListAdapter extends BaseAdapter {
         thumbNail.setImageUrl(m.getThumbnailUrl(), imageLoader);
 
         // name
-        name.setText(m.getName());
+        //name.setText(m.getName());
+        name.setClickable(true);
+        name.setMovementMethod(LinkMovementMethod.getInstance());
+        String text = "<a href='" + m.getSiteUrl() + "'>" + m.getName() + "</a>";
+        name.setText(Html.fromHtml(text));
 
         // price
         String euro = "\u20ac";
@@ -100,7 +106,7 @@ public class CustomListAdapter extends BaseAdapter {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Uri uri = Uri.parse(m.getSiteUrl()); // missing 'http://' will cause crashed
+                Uri uri = Uri.parse(m.getBuyUrl()); // missing 'http://' will cause crashed
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 v.getContext().startActivity(intent);
             }

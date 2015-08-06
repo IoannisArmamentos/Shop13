@@ -3,6 +3,7 @@ package com.shop13.DrawerActions;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -16,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TabHost;
 import android.widget.TabWidget;
+import android.widget.TextView;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -89,15 +91,7 @@ public class ProductFragment extends Fragment {
 
         mTabsAdapter.addTab(mTabHost.newTabSpec("one").setIndicator(getResources().getString(R.string.all)), AllProductsFragment.class, null);
         JSONProducts();
-        /*final TabWidget tw = (TabWidget)mTabHost.findViewById(android.R.id.tabs);
-        System.out.println("Hello ===============> " + tw.getChildCount());
-        for(int i=0; i<tw.getChildCount(); i++)
-        {
 
-            final View tabView = tw.getChildTabViewAt(i);
-            final TextView tv = (TextView)tabView.findViewById(android.R.id.title);
-            tv.setTextSize(TypedValue.COMPLEX_UNIT_SP,10);
-        }*/
 
         return v;
     }
@@ -270,11 +264,9 @@ public class ProductFragment extends Fragment {
                                     }
                                     flagCharge = false;
                                 }*/
-
                                 flagCase = addProductToCat(product,"144", getResources().getString(R.string.cases),caseList,flagCase,CasesFragment.class);
                                 flagProtector = addProductToCat(product,"176",getResources().getString(R.string.protectos),protectorList,flagProtector,ProtectorsFragment.class);
-                                flagCharge = addProductToCat(product,"180",getResources().getString(R.string.parts),chargeList,flagCharge,ChargersFragment.class);
-
+                                flagCharge = addProductToCat(product,"180",getResources().getString(R.string.chargers),chargeList,flagCharge,ChargersFragment.class);
 
                             } catch (JSONException e) {
                                 e.printStackTrace();
@@ -302,6 +294,21 @@ public class ProductFragment extends Fragment {
         // Adding request to request queue
         AppController.getInstance().addToRequestQueue(productReq);
 
+        /*final TabWidget tw = (TabWidget)mTabHost.findViewById(android.R.id.tabs);
+        System.out.println("Hello ===============> " + tw.getChildCount());
+        for(int i=0; i<tw.getChildCount(); i++)
+        {
+
+            final View tabView = tw.getChildTabViewAt(i);
+            final TextView tv = (TextView)tabView.findViewById(android.R.id.title);
+            tv.setTextSize(TypedValue.COMPLEX_UNIT_SP,10);
+
+        }*/
+       /* TextView x = (TextView) mTabHost.getTabWidget().getChildAt(0).findViewById(android.R.id.title);
+        x.setTextSize(TypedValue.COMPLEX_UNIT_SP,10);*/
+        //System.out.println("=====>Fuck you");
+
+
     }
 
     /*product = proion pou prostheto stin lista
@@ -317,6 +324,12 @@ public class ProductFragment extends Fragment {
             catList.add(product);
             if (flagCat) {
                 mTabsAdapter.addTab(mTabHost.newTabSpec("Tab_").setIndicator(catName), className, null);
+                for(int i=0;i<mTabHost.getTabWidget().getChildCount();i++)
+                {
+                    TextView tv = (TextView) mTabHost.getTabWidget().getChildAt(i).findViewById(android.R.id.title);
+                    //tv.setTextSize(TypedValue.COMPLEX_UNIT_SP,10);
+                    tv.setHorizontallyScrolling(true);
+                }
             }
             flagCat = false;
         }
