@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.NetworkImageView;
+import com.google.android.gms.analytics.HitBuilders;
 import com.shop13.R;
 import com.shop13.app.AppController;
 import com.shop13.model.Product;
@@ -106,6 +107,10 @@ public class CustomListAdapter extends BaseAdapter {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                AppController.tracker().send(new HitBuilders.EventBuilder()
+                        .setCategory(m.getName())
+                        .setAction("ацояа")
+                        .build());
                 Uri uri = Uri.parse(m.getBuyUrl()); // missing 'http://' will cause crashed
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 v.getContext().startActivity(intent);

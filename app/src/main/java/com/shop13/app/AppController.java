@@ -53,7 +53,7 @@ public class AppController extends Application {
 
     @Override
     public void onCreate() {
-
+        //Google Analytics Arxikopoihsh
         analytics = com.google.android.gms.analytics.GoogleAnalytics.getInstance(this);
         analytics.setLocalDispatchPeriod(1800);
 
@@ -72,6 +72,7 @@ public class AppController extends Application {
 
         // All subsequent hits will be send with screen name = "main screen"
         tracker.setScreenName("main screen");
+        //End Google Analytics
 
         super.onCreate();
         mInstance = this;
