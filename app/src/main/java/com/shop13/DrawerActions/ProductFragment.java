@@ -273,7 +273,7 @@ public class ProductFragment extends Fragment {
 
                                 flagCase = addProductToCat(product,"144", getResources().getString(R.string.cases),caseList,flagCase,CasesFragment.class);
                                 flagProtector = addProductToCat(product,"176",getResources().getString(R.string.protectos),protectorList,flagProtector,ProtectorsFragment.class);
-                                flagCharge = addProductToCat(product,"180",getResources().getString(R.string.parts),chargeList,flagCharge,ChargersFragment.class);
+                                flagCharge = addProductToCat(product,"180",getResources().getString(R.string.chargers),chargeList,flagCharge,ChargersFragment.class);
 
 
                             } catch (JSONException e) {
