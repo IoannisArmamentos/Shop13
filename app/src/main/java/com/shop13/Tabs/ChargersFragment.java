@@ -19,8 +19,8 @@ public class ChargersFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         AppController.tracker().send(new HitBuilders.EventBuilder()
-                .setCategory(getActivity().getString(R.string.clicktab))
-                .setAction(getActivity().getString(R.string.chargers))
+                .setCategory(getActivity().getString(R.string.click))
+                .setAction(getActivity().getString(R.string.tabfortistes))
                 .build());
         super.onCreate(savedInstanceState);
     }

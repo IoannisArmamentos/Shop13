@@ -125,7 +125,7 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
             default:
             case 0: //Products
                 AppController.tracker().send(new HitBuilders.EventBuilder()
-                        .setCategory(myContext.getString(R.string.clickkartelas))
+                        .setCategory(myContext.getString(R.string.click))
                         .setAction(myContext.getString(R.string.symvataproionta))
                         .build());
                 getActivity().setTitle(Build.MODEL + " | " + "Προϊόντα ");
@@ -137,7 +137,7 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
                 break;
             case 1: //Shop13
                 AppController.tracker().send(new HitBuilders.EventBuilder()
-                        .setCategory(myContext.getString(R.string.clickkartelas))
+                        .setCategory(myContext.getString(R.string.click))
                         .setAction(myContext.getString(R.string.app_name))
                         .build());
                 getActivity().setTitle(myContext.getString(R.string.app_name));
@@ -149,7 +149,7 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
                 break;
             case 2: //HowToOrder
                 AppController.tracker().send(new HitBuilders.EventBuilder()
-                        .setCategory(myContext.getString(R.string.clickkartelas))
+                        .setCategory(myContext.getString(R.string.click))
                         .setAction(myContext.getString(R.string.pwsparaggelnw))
                         .build());
                 getActivity().setTitle(myContext.getString(R.string.pwsparaggelnw));
@@ -161,7 +161,7 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
                 break;
             case 3: //Exit
                 AppController.tracker().send(new HitBuilders.EventBuilder()
-                        .setCategory(myContext.getString(R.string.clickkartelas))
+                        .setCategory(myContext.getString(R.string.click))
                         .setAction("Exit")
                         .setLabel("I don't want to live on this planet anymore")
                         .build());

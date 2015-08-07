@@ -50,7 +50,12 @@
 
     <string name="click">Click</string>
     <string name="clickkartelas">Click Καρτέλας</string>
-    <string name="clicktab">Click Tab</string>
+    <string name="tabola">Tab ΟΛΑ</string>
+    <string name="tabthikes">Tab ΘΗΚΕΣ</string>
+    <string name="tabfortistes">Tab ΦΟΡΤΙΣΤΕΣ</string>
+    <string name="tabprosotho">Tab ΠΡΟΣΤΑΣΙΑ ΟΘΟΝΗΣ</string>
+
+
 
 
 

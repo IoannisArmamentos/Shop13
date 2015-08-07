@@ -21,8 +21,8 @@ public class ProtectorsFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         AppController.tracker().send(new HitBuilders.EventBuilder()
-                .setCategory(getActivity().getString(R.string.clicktab))
-                .setAction(getActivity().getString(R.string.protectos))
+                .setCategory(getActivity().getString(R.string.click))
+                .setAction(getActivity().getString(R.string.tabprosotho))
                 .build());
         super.onCreate(savedInstanceState);
     }
