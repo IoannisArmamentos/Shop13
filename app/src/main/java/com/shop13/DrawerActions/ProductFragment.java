@@ -52,7 +52,8 @@ public class ProductFragment extends Fragment {
 
     // Products json url
     static String device = Build.MODEL;
-    private static final String urlStr = "http://www.shop13.gr/app_search.php?model=" + device;
+    static String manufacturer = Build.MANUFACTURER;
+    private static final String urlStr = "http://www.shop13.gr/app_search.php?model=" + device + "&man="+ manufacturer;
 
     private ProgressDialog pDialog;
     private List<Product> productList = new ArrayList<Product>();
@@ -287,6 +288,7 @@ public class ProductFragment extends Fragment {
 
         // Adding request to request queue
         AppController.getInstance().addToRequestQueue(productReq);
+        System.out.println(url);
 
         /*final TabWidget tw = (TabWidget)mTabHost.findViewById(android.R.id.tabs);
         System.out.println("Hello ===============> " + tw.getChildCount());
