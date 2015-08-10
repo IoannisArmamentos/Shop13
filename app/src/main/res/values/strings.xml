@@ -54,10 +54,10 @@
     <string name="tabthikes">Tab ΘΗΚΕΣ</string>
     <string name="tabfortistes">Tab ΦΟΡΤΙΣΤΕΣ</string>
     <string name="tabprosotho">Tab ΠΡΟΣΤΑΣΙΑ ΟΘΟΝΗΣ</string>
-
-
-
-
+    <string name="isonline">Για να λειτουργήσει η εφαρμογή απαιτείται πρόσβαση στο Internet.Παρακαλώ ενεργοποιήστε το WiFi ή τα Δεδομένα Δικτύου(3G/4G).</string>
+    <string name="unabletoconnect">Αδύνατη η σύνδεση</string>
+    <string name="settings">Ρυθμίσεις</string>
+    <string name="exit">Έξοδος</string>
 
 
 </resources>

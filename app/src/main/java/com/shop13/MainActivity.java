@@ -1,7 +1,14 @@
 package com.shop13;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
@@ -38,7 +45,34 @@ public class MainActivity extends ActionBarActivity
         // Set up the drawer.
         mNavigationDrawerFragment.setup(R.id.fragment_drawer, (DrawerLayout) findViewById(R.id.drawer), mToolbar);
 
+        //An den exei internet enhmerwse xristi
+        if (!isOnline())
+        {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setMessage(R.string.isonline)
+                    .setTitle(R.string.unabletoconnect)
+                    .setCancelable(false)
+                    .setPositiveButton(R.string.settings,
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    Intent intent = new Intent(Settings.ACTION_SETTINGS);
+                                    finish();
+                                    startActivity(intent);
+                                }
+                            }
+                    )
+                    .setNegativeButton(R.string.exit,
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    MainActivity.this.finish();
+                                }
+                            }
+                    );
+            AlertDialog alert = builder.create();
+            alert.show();
+        }
 
+        //Google Analytics stelnei syskevi xristi
         AppController.tracker().send(new HitBuilders.EventBuilder()
                 .setCategory("Device")
                 .setAction(Build.MODEL)
@@ -51,6 +85,7 @@ public class MainActivity extends ActionBarActivity
         fragmentManager.beginTransaction() //Ksekinaei to fragment pou dialextike
                 .replace(R.id.container, fragment)
                 .commit();
+
     }
 
     @Override
@@ -66,5 +101,13 @@ public class MainActivity extends ActionBarActivity
             mNavigationDrawerFragment.closeDrawer();
         else
             super.onBackPressed();
+    }
+
+    //Elegxei ean yparxei prosvasi sto internet
+    public boolean isOnline() {
+        ConnectivityManager cm =
+                (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+        return netInfo != null && netInfo.isConnectedOrConnecting();
     }
 }
