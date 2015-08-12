@@ -28,7 +28,7 @@
     <string name="about17">9:00 - 14:00\nΚλειστά</string>
     <string name="about18">Κυριακή</string>
     <string name="about19">Κλειστά</string>
-    <string name="about20">Ταυτότητα</string>
+    <string name="about20">Η Εταιρία</string>
     <string name="about21">SHOP13.GR\nΟδός Λ.Λογοθέτη 14,\nΚαρλόβασι Σάμου\nΤ.Κ. 83200\n\nΑ.Ε Γ.Ε.ΜΗ.: 052086751000</string>
 
     <string name="howtoordertext1">Σχετικά</string>
@@ -56,6 +56,7 @@
     <string name="tabprosotho">Tab ΠΡΟΣΤΑΣΙΑ ΟΘΟΝΗΣ</string>
     <string name="isonline">Για να λειτουργήσει η εφαρμογή απαιτείται πρόσβαση στο Internet.Παρακαλώ ενεργοποιήστε το WiFi ή τα Δεδομένα Δικτύου(3G/4G).</string>
     <string name="unabletoconnect">Αδύνατη η σύνδεση</string>
+    <string name="noproducts">Δυστυχώς δεν καταφέραμε να βρούμε συμβατά προϊόντα για την συσκευή σας.</string>
     <string name="settings">Ρυθμίσεις</string>
     <string name="exit">Έξοδος</string>
 

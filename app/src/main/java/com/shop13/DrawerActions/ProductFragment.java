@@ -46,14 +46,14 @@ public class ProductFragment extends Fragment {
     public static TabHost mTabHost;
     private ViewPager mViewPager;
     private TabsAdapter mTabsAdapter;
-    //**********************************/
     // Log tag
     private static final String TAG = MainActivity.class.getSimpleName();
 
     // Products json url
     static String device = Build.MODEL;
     static String manufacturer = Build.MANUFACTURER;
-    private static final String urlStr = "http://www.shop13.gr/app_search.php?model=" + device + "&man="+ manufacturer;
+    private static final String urlStr = "http://www.shop13.gr/app_search.php?model=" + device + "&man=" + manufacturer;
+    //private static final String urlStr = "http://www.shop13.gr/app_search.php?model=troll&man=troll";
 
     private ProgressDialog pDialog;
     private List<Product> productList = new ArrayList<Product>();
@@ -64,6 +64,7 @@ public class ProductFragment extends Fragment {
     private ListView listView;
     public static CustomListAdapter adapter, adapterCase, adapterProtector, adapterCharger;
     boolean flagCase = true, flagProtector = true, flagCharger = true;
+    public static boolean flagProd = false;
 
     public ProductFragment() {
     }
@@ -87,8 +88,8 @@ public class ProductFragment extends Fragment {
         mTabsAdapter = new TabsAdapter(getActivity(), mTabHost, mViewPager);
 
         mTabsAdapter.addTab(mTabHost.newTabSpec("one").setIndicator(getResources().getString(R.string.all)), AllProductsFragment.class, null);
-        JSONProducts();
 
+        JSONProducts();
 
         return v;
     }
@@ -153,7 +154,7 @@ public class ProductFragment extends Fragment {
         @Override
         public Fragment getItem(int position) {
             TabInfo info = mTabs.get(position);
-                        return Fragment.instantiate(mContext, info.clss.getName(), info.args);
+            return Fragment.instantiate(mContext, info.clss.getName(), info.args);
 
         }
 
@@ -219,8 +220,16 @@ public class ProductFragment extends Fragment {
 
                         // Parsing json
                         for (int i = 0; i < response.length(); i++) {
+                            //ean vrethei esto ki ena proion kanoume clear to munima "den vrethikan proionta"
+                            //i==0 oste na to treksei tin proti fora mono
+                            if (i == 0) {
+                                TextView tv = (TextView) ProductFragment.mTabHost.getTabWidget().getChildAt(0).findViewById(android.R.id.title);
+                                tv.setText(getString(R.string.all));
+                                //mTabHost.getTabWidget().getChildAt(0).setBackgroundColor(Color.parseColor("#ffffff"));
+                                productList.clear();
+                            }
                             try {
-
+                                //mTabHost.getTabWidget().removeView(mTabHost.getTabWidget().getChildTabViewAt(0));
                                 JSONObject obj = response.getJSONObject(i);
                                 Product product = new Product();
                                 product.setId(((Number) obj.get("id")).intValue());
@@ -240,35 +249,15 @@ public class ProductFragment extends Fragment {
                                 // adding product to products array
                                 productList.add(product);
 
-                                //TO REMEMBER THE TYPES caseType="144", protectorType="176", partsType="174", chargeType="180";
-                                /*if (product.getType().equals("144")) {
-                                    caseList.add(product);
-                                    if (flagCase) {
-                                        mTabsAdapter.addTab(mTabHost.newTabSpec("two").setIndicator(getResources().getString(R.string.cases)), CasesFragment.class, null);
-                                    }
-                                    flagCase = false;
-                                } else if (product.getType().equals("176")) {
-                                    protectorList.add(product);
-                                    if (flagProtector) {
-                                        mTabsAdapter.addTab(mTabHost.newTabSpec("three").setIndicator(getResources().getString(R.string.protectos)), ProtectorsFragment.class, null);
-                                    }
-                                    flagProtector = false;
-                                } else if (product.getType().equals("180")) {
-                                    chargeList.add(product);
-                                    if (flagCharger) {
-                                        mTabsAdapter.addTab(mTabHost.newTabSpec("four").setIndicator(getResources().getString(R.string.parts)), ChargersFragment.class, null);
-                                    }
-                                    flagCharger = false;
-                                }*/
-                                flagCase = addProductToCat(product,"144", getResources().getString(R.string.cases),caseList,flagCase,CasesFragment.class);
-                                flagProtector = addProductToCat(product,"176",getResources().getString(R.string.protectos),protectorList,flagProtector,ProtectorsFragment.class);
-                                flagCharger = addProductToCat(product,"180",getResources().getString(R.string.chargers),chargeList,flagCharger,ChargersFragment.class);
-
+                                flagCase = addProductToCat(product, "144", getResources().getString(R.string.cases), caseList, flagCase, CasesFragment.class);
+                                flagProtector = addProductToCat(product, "176", getResources().getString(R.string.protectos), protectorList, flagProtector, ProtectorsFragment.class);
+                                flagCharger = addProductToCat(product, "180", getResources().getString(R.string.chargers), chargeList, flagCharger, ChargersFragment.class);
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
 
                         }
+
 
                         // notifying list adapter about data changes
                         // so that it renders the list view with updated data
@@ -286,23 +275,22 @@ public class ProductFragment extends Fragment {
             }
         });
 
+
         // Adding request to request queue
         AppController.getInstance().addToRequestQueue(productReq);
-        System.out.println(url);
+        //System.out.println(url);
 
-        /*final TabWidget tw = (TabWidget)mTabHost.findViewById(android.R.id.tabs);
-        System.out.println("Hello ===============> " + tw.getChildCount());
-        for(int i=0; i<tw.getChildCount(); i++)
-        {
-
-            final View tabView = tw.getChildTabViewAt(i);
-            final TextView tv = (TextView)tabView.findViewById(android.R.id.title);
-            tv.setTextSize(TypedValue.COMPLEX_UNIT_SP,10);
-
-        }*/
-       /* TextView x = (TextView) mTabHost.getTabWidget().getChildAt(0).findViewById(android.R.id.title);
-        x.setTextSize(TypedValue.COMPLEX_UNIT_SP,10);*/
-        //System.out.println("=====>Fuck you");
+        //trexei prin na gemisei i arraylist opote theoritika trexei panta
+        if (productList.size() == 0) {
+            TextView tv = (TextView) ProductFragment.mTabHost.getTabWidget().getChildAt(0).findViewById(android.R.id.title);
+            tv.setText("");
+            //mTabHost.getTabWidget().getChildAt(0).setBackgroundColor(Color.parseColor("#03A9F4"));
+            Product product = new Product();
+            //product.setId(1);
+            product.setName(getString(R.string.noproducts));
+            productList.add(product);
+            adapter.notifyDataSetChanged();
+        }
     }
 
     /*product = proion pou prostheto stin lista
@@ -312,20 +300,19 @@ public class ProductFragment extends Fragment {
       flagCat = elegxei ean uparxei i katigoria san tab
       className = pou tha kanei redirect to tab
      */
-    private boolean addProductToCat(Product product, String catNumber, String catName, List<Product> catList, boolean flagCat, Class className )
-    {
+    private boolean addProductToCat(Product product, String catNumber, String catName, List<Product> catList, boolean flagCat, Class className) {
         if (product.getType().equals(catNumber)) {
             catList.add(product);
             if (flagCat) {
                 mTabsAdapter.addTab(mTabHost.newTabSpec("Tab_").setIndicator(catName), className, null);
-                for(int i=0;i<mTabHost.getTabWidget().getChildCount();i++)
-                {
+                for (int i = 0; i < mTabHost.getTabWidget().getChildCount(); i++) {
                     TextView tv = (TextView) mTabHost.getTabWidget().getChildAt(i).findViewById(android.R.id.title);
-                    //tv.setTextSize(TypedValue.COMPLEX_UNIT_SP,10);
                     tv.setHorizontallyScrolling(true);
                 }
             }
             flagCat = false;
+            flagProd = true;
+
         }
         return flagCat;
     }

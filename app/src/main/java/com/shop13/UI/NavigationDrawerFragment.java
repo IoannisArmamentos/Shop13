@@ -29,9 +29,6 @@ import com.shop13.model.NavigationItem;
 import java.util.ArrayList;
 import java.util.List;
 
-/*import android.support.v4.app.FragmentManager;
-import android.app.FragmentManager;*/
-
 /**
  * Fragment used for managing interactions for and presentation of a navigation drawer.
  * See the <a href="https://developer.android.com/design/patterns/navigation-drawer.html#Interaction">
@@ -118,8 +115,8 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
     @Override
     public void onNavigationDrawerItemSelected(int position) {
         //NavigationDrawer epilegoyme kapoia kartela kai anoigei to antistoixo fragment.Ousiastika einai ena menu
-        Fragment fragment = null ; // Vazoume null gt petaei sfalma an dn to kathorisoume apo tin arxi kai kapoio case den to exei
-                                   // Mas ta kanein dld karpouzia kai planites antistoixa.
+        Fragment fragment = null; // Vazoume null gt petaei sfalma an dn to kathorisoume apo tin arxi kai kapoio case den to exei
+        // Mas ta kanein dld karpouzia kai planites antistoixa.
         android.app.FragmentManager fragmentManager = getFragmentManager(); // For AppCompat use getSupportFragmentManager
         switch (position) {
             default:
@@ -261,7 +258,7 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
     @Override
     public void onAttach(Activity activity) {
         // To pire
-        myContext=(FragmentActivity) activity;
+        myContext = (FragmentActivity) activity;
         super.onAttach(activity);
         try {
             mCallbacks = (NavigationDrawerCallbacks) activity;

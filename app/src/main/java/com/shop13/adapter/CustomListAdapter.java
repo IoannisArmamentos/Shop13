@@ -74,63 +74,57 @@ public class CustomListAdapter extends BaseAdapter {
         // thumbnail image
         thumbNail.setImageUrl(m.getThumbnailUrl(), imageLoader);
 
-        // name da
-        //name.setText(m.getName());
-        name.setClickable(true);
-        name.setMovementMethod(LinkMovementMethod.getInstance());
-        String text = "<a href='" + m.getSiteUrl() + "'>" + m.getName() + "</a>";
-        name.setText(Html.fromHtml(text));
+        //simple check gia to ean dn vrethikan proionta me vasi tin timi oste na vgalei "den vrethikan proionta"
+        //ean uparxei timi
+        if (m.getSiteUrl() == null) {
 
-        // price
-        String euro = "\u20ac";
-        String[] parts = String.valueOf(m.getPrice() + euro).split("\\.");
-        //String text = "<span>" + parts[0] + "</span><sub>" + parts[1] + "</sub>";
-        //String text = "<font size=200 color=#cc0029>" + parts[0] + "</font> <font color=#ffcc00>" + parts[1] + "</font>";
-        //price.setText(String.valueOf(m.getPrice()) + " " + euro);
+            name.setText(m.getName());
+            button.setVisibility(View.INVISIBLE);
 
-		/*final SpannableString text = new SpannableString(parts[0]);
-        final SpannableString text1 = new SpannableString(parts[1]);
-		text.setSpan(new RelativeSizeSpan(2.0f), 0, 1,
-				Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-		text1.setSpan(new RelativeSizeSpan(0.5f), 2, 5,
-				Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);*/
-        Spannable mainPrice = new SpannableString(parts[0]);
+        } else {
+            button.setVisibility(View.VISIBLE);
+            name.setClickable(true);
+            name.setMovementMethod(LinkMovementMethod.getInstance());
+            String text = "<a href='" + m.getSiteUrl() + "'>" + m.getName() + "</a>";
+            name.setText(Html.fromHtml(text));
 
-        mainPrice.setSpan(new RelativeSizeSpan(3.5f), 0, mainPrice.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            // price
+            String euro = "\u20ac";
+            String[] parts = String.valueOf(m.getPrice() + euro).split("\\.");
+            //String text = "<span>" + parts[0] + "</span><sub>" + parts[1] + "</sub>";
+            //String text = "<font size=200 color=#cc0029>" + parts[0] + "</font> <font color=#ffcc00>" + parts[1] + "</font>";
+            //price.setText(String.valueOf(m.getPrice()) + " " + euro);
 
-        price.setText(mainPrice);
-        Spannable subPrice = new SpannableString("." + parts[1]);
+		    /*final SpannableString text = new SpannableString(parts[0]);
+            final SpannableString text1 = new SpannableString(parts[1]);
+		    text.setSpan(new RelativeSizeSpan(2.0f), 0, 1,
+			Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+		    text1.setSpan(new RelativeSizeSpan(0.5f), 2, 5,
+			Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);*/
+            Spannable mainPrice = new SpannableString(parts[0]);
 
-        subPrice.setSpan(new RelativeSizeSpan(1.2f), 0, subPrice.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-        price.append(subPrice);
+            mainPrice.setSpan(new RelativeSizeSpan(3.5f), 0, mainPrice.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AppController.tracker().send(new HitBuilders.EventBuilder()
-                        .setCategory("Click")
-                        .setAction("AGORA")
-                        .setLabel(m.getName())
-                        .build());
-                Uri uri = Uri.parse(m.getBuyUrl()); // missing 'http://' will cause crashed
-                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                v.getContext().startActivity(intent);
-            }
-        });
+            price.setText(mainPrice);
+            Spannable subPrice = new SpannableString("." + parts[1]);
 
+            subPrice.setSpan(new RelativeSizeSpan(1.2f), 0, subPrice.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            price.append(subPrice);
 
-        //price.setText(Html.fromHtml(text));
-        // genre
-		/*String genreStr = "";
-		for (String str : m.getGenre()) {
-			genreStr += str + ", ";
-		}
-		genreStr = genreStr.length() > 0 ? genreStr.substring(0,
-				genreStr.length() - 2) : genreStr;
-		genre.setText(genreStr);
-
-		// release year
-		year.setText(String.valueOf(m.getYear()));*/
+            button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    AppController.tracker().send(new HitBuilders.EventBuilder()
+                            .setCategory("Click")
+                            .setAction("AGORA")
+                            .setLabel(m.getName())
+                            .build());
+                    Uri uri = Uri.parse(m.getBuyUrl()); // missing 'http://' will cause crashed
+                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                    v.getContext().startActivity(intent);
+                }
+            });
+        }
 
         return convertView;
     }

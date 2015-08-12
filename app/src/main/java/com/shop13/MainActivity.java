@@ -46,8 +46,7 @@ public class MainActivity extends ActionBarActivity
         mNavigationDrawerFragment.setup(R.id.fragment_drawer, (DrawerLayout) findViewById(R.id.drawer), mToolbar);
 
         //An den exei internet enhmerwse xristi
-        if (!isOnline())
-        {
+        if (!isOnline()) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setMessage(R.string.isonline)
                     .setTitle(R.string.unabletoconnect)

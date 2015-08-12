@@ -27,9 +27,11 @@ public class AllProductsFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.allproducts_fragment, container, false);
+        View root = null;
+        root = inflater.inflate(R.layout.allproducts_fragment, container, false);
         listView = (ListView) root.findViewById(R.id.list);
         listView.setAdapter(ProductFragment.adapter);
+
         return root;
     }
 

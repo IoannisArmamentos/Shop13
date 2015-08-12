@@ -8,10 +8,10 @@ public class Exit extends Fragment {
     //Den einai apodotiko gia ti mnimi,prepei na diorthwthei o kwdikas
 
     @Override
-    public void onCreate(Bundle savedInstanceState)
-    {
+    public void onCreate(Bundle savedInstanceState) {
         System.exit(0);
     }
+
     public void onDestroy() {
         super.onDestroy();
     }

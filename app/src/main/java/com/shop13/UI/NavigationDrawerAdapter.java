@@ -10,7 +10,6 @@ import android.widget.TextView;
 import com.shop13.R;
 import com.shop13.model.NavigationItem;
 
-
 import java.util.List;
 
 
