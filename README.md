@@ -8,7 +8,7 @@ Displays available items and info in categories, filtered only on the user's pho
 
 **How To Order**
 
-![How_To](https://lh3.googleusercontent.com/cqs77NCudsSFdKJEeXhuFlepSSmROTEUXwjOlWHpGzt6Z-b3_Y-JZJogGq-nUJh91oZWiIyCFtXsrg=w1825-h1297)
+![How_To](https://lh5.googleusercontent.com/UIHx2IqPXa-74Y7vWU4Ryc9QTOgcwiTEqRp23T6DyMVlFdGLewjsnpvZ6BX5YEiYwE_y1XshPzbVqQ=w1825-h1297)
 
 
 **About Shop**
